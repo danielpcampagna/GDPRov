@@ -1,0 +1,647 @@
+<div id="changelog">
+<h2 id="changes" class="list">Changes from last version</h2>
+<h3 id="changeClass" class="list">Classes</h3>
+<p><u>Modified classes</u></p>
+<ul><li><a href="#http://purl.org/net/p-plan#Plan">http://purl.org/net/p-plan#Plan</a>
+<ul>
+<li>Added: SubClass of http://purl.org/net/p-plan#Entity</li>
+<li>Added: rdfs:isDefinedBy http://purl.org/net/p-plan#</li>
+<li>Added: SubClass of http://www.w3.org/ns/prov#Plan</li>
+<li>Added: <http://www.w3.org/ns/prov#definition> "A p-plan:Plan is a specific type of prov:Plan. It is composed of smaller steps that use and produce Variables."@en</li>
+<li>Added: rdfs:label "Plan"@en</li>
+</ul>
+</li>
+<li><a href="#http://purl.org/net/p-plan#Variable">http://purl.org/net/p-plan#Variable</a>
+<ul>
+<li>Added: rdfs:label "Variable"@en</li>
+<li>Added: rdfs:isDefinedBy http://purl.org/net/p-plan#</li>
+<li>Added: <http://www.w3.org/ns/prov#definition> "A p-plan:Variable represents a description of the input of the planned Activity (p-plan:Step)"@en</li>
+</ul>
+</li>
+<li><a href="#http://purl.org/net/p-plan#Step">http://purl.org/net/p-plan#Step</a>
+<ul>
+<li>Added: rdfs:isDefinedBy http://purl.org/net/p-plan#</li>
+<li>Added: <http://www.w3.org/ns/prov#definition> "A p-plan:Step represents the planned execution activity"@en</li>
+<li>Added: rdfs:label "Step"@en</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#Agent">http://www.w3.org/ns/prov#Agent</a>
+<ul>
+<li>Added: rdfs:label "Agent"^^xsd:string</li>
+<li>Added: <http://www.w3.org/ns/prov#n> "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Agent"^^xsd:anyURI</li>
+<li>Added: <http://www.w3.org/ns/prov#category> "starting-point"^^xsd:string</li>
+<li>Added: rdfs:isDefinedBy http://www.w3.org/ns/prov-o#</li>
+<li>Added: <http://www.w3.org/ns/prov#component> "agents-responsibility"^^xsd:string</li>
+<li>Added: DisjointClasses DisjointClasses(&lt;http://www.w3.org/ns/prov#Agent&gt; &lt;http://www.w3.org/ns/prov#InstantaneousEvent&gt;)</li>
+<li>Added: <http://www.w3.org/ns/prov#dm> "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent"^^xsd:anyURI</li>
+<li>Added: <http://www.w3.org/ns/prov#definition> "An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity. "@en</li>
+</ul>
+</li>
+<li><a href="#http://purl.org/net/p-plan#Activity">http://purl.org/net/p-plan#Activity</a>
+<ul>
+<li>Added: rdfs:label "Activity"@en</li>
+<li>Added: SubClass of http://www.w3.org/ns/prov#Activity</li>
+<li>Added: rdfs:comment "A p-plan:Activity represents the execution process planned in a p-plan:Step"@en</li>
+<li>Added: rdfs:isDefinedBy http://purl.org/net/p-plan#</li>
+</ul>
+</li>
+<li><a href="#http://purl.org/net/p-plan#Entity">http://purl.org/net/p-plan#Entity</a>
+<ul>
+<li>Added: rdfs:isDefinedBy http://purl.org/net/p-plan#</li>
+<li>Added: rdfs:label "Entity"@en</li>
+<li>Added: <http://www.w3.org/ns/prov#definition> "A p-plan:Entity represents the input of the execution of a p-plan:Activity. It corresponds to a p-plan:Variable."@en</li>
+<li>Added: SubClass of http://www.w3.org/ns/prov#Entity</li>
+</ul>
+</li>
+</ul><p><u>Added classes</u></p>
+<ul><li><a href="#http://www.w3.org/ns/prov#PrimarySource">http://www.w3.org/ns/prov#PrimarySource</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/ns/prov#Derivation</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#Communication">http://www.w3.org/ns/prov#Communication</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/ns/prov#ActivityInfluence</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#Start">http://www.w3.org/ns/prov#Start</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/ns/prov#EntityInfluence</li>
+<li>Added: SubClass of http://www.w3.org/ns/prov#InstantaneousEvent</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#Location">http://www.w3.org/ns/prov#Location</a>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#Organization">http://www.w3.org/ns/prov#Organization</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/ns/prov#Agent</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#Person">http://www.w3.org/ns/prov#Person</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/ns/prov#Agent</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#Bundle">http://www.w3.org/ns/prov#Bundle</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/ns/prov#Entity</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#Quotation">http://www.w3.org/ns/prov#Quotation</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/ns/prov#Derivation</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#Association">http://www.w3.org/ns/prov#Association</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/ns/prov#AgentInfluence</li>
+</ul>
+</li>
+<li><a href="#http://purl.org/net/p-plan#Bundle">http://purl.org/net/p-plan#Bundle</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/ns/prov#Bundle</li>
+<li>Added: SubClass of http://purl.org/net/p-plan#Entity</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#Delegation">http://www.w3.org/ns/prov#Delegation</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/ns/prov#AgentInfluence</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#Derivation">http://www.w3.org/ns/prov#Derivation</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/ns/prov#EntityInfluence</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#Attribution">http://www.w3.org/ns/prov#Attribution</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/ns/prov#AgentInfluence</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#Influence">http://www.w3.org/ns/prov#Influence</a>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#InstantaneousEvent">http://www.w3.org/ns/prov#InstantaneousEvent</a>
+<ul>
+<li>Added: DisjointClasses DisjointClasses(&lt;http://www.w3.org/ns/prov#Entity&gt; &lt;http://www.w3.org/ns/prov#InstantaneousEvent&gt;)</li>
+<li>Added: DisjointClasses DisjointClasses(&lt;http://www.w3.org/ns/prov#Agent&gt; &lt;http://www.w3.org/ns/prov#InstantaneousEvent&gt;)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#ActivityInfluence">http://www.w3.org/ns/prov#ActivityInfluence</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/ns/prov#Influence</li>
+<li>Added: DisjointClasses DisjointClasses(&lt;http://www.w3.org/ns/prov#ActivityInfluence&gt; &lt;http://www.w3.org/ns/prov#EntityInfluence&gt;)</li>
+<li></ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#Generation">http://www.w3.org/ns/prov#Generation</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/ns/prov#ActivityInfluence</li>
+<li>Added: SubClass of http://www.w3.org/ns/prov#InstantaneousEvent</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#EntityInfluence">http://www.w3.org/ns/prov#EntityInfluence</a>
+<ul>
+<li>Added: DisjointClasses DisjointClasses(&lt;http://www.w3.org/ns/prov#ActivityInfluence&gt; &lt;http://www.w3.org/ns/prov#EntityInfluence&gt;)</li>
+<li>Added: SubClass of http://www.w3.org/ns/prov#Influence</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#Revision">http://www.w3.org/ns/prov#Revision</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/ns/prov#Derivation</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#Plan">http://www.w3.org/ns/prov#Plan</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/ns/prov#Entity</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#SoftwareAgent">http://www.w3.org/ns/prov#SoftwareAgent</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/ns/prov#Agent</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#Invalidation">http://www.w3.org/ns/prov#Invalidation</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/ns/prov#InstantaneousEvent</li>
+<li>Added: SubClass of http://www.w3.org/ns/prov#ActivityInfluence</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#Activity">http://www.w3.org/ns/prov#Activity</a>
+<ul>
+<li>Added: DisjointClasses DisjointClasses(&lt;http://www.w3.org/ns/prov#Activity&gt; &lt;http://www.w3.org/ns/prov#Entity&gt;)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2002/07/owl#Thing">http://www.w3.org/2002/07/owl#Thing</a>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#Collection">http://www.w3.org/ns/prov#Collection</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/ns/prov#Entity</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#Entity">http://www.w3.org/ns/prov#Entity</a>
+<ul>
+<li>Added: DisjointClasses DisjointClasses(&lt;http://www.w3.org/ns/prov#Entity&gt; &lt;http://www.w3.org/ns/prov#InstantaneousEvent&gt;)</li>
+<li>Added: DisjointClasses DisjointClasses(&lt;http://www.w3.org/ns/prov#Activity&gt; &lt;http://www.w3.org/ns/prov#Entity&gt;)</li>
+</ul>
+</li>
+<li><a href="#http://purl.org/net/p-plan#MultiStep">http://purl.org/net/p-plan#MultiStep</a>
+<ul>
+<li>Added: SubClass of http://purl.org/net/p-plan#Plan</li>
+<li>Added: SubClass of http://purl.org/net/p-plan#Step</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#Role">http://www.w3.org/ns/prov#Role</a>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#End">http://www.w3.org/ns/prov#End</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/ns/prov#InstantaneousEvent</li>
+<li>Added: SubClass of http://www.w3.org/ns/prov#EntityInfluence</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#AgentInfluence">http://www.w3.org/ns/prov#AgentInfluence</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/ns/prov#Influence</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#Usage">http://www.w3.org/ns/prov#Usage</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/ns/prov#InstantaneousEvent</li>
+<li>Added: SubClass of http://www.w3.org/ns/prov#EntityInfluence</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#EmptyCollection">http://www.w3.org/ns/prov#EmptyCollection</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/ns/prov#Collection</li>
+</ul>
+</li>
+</ul><h3 id="changeProp" class="list">Object Properties</h3>
+<p><u>Modified properties</u></p>
+<ul><li><a href="#http://purl.org/net/p-plan#hasOutputVar">http://purl.org/net/p-plan#hasOutputVar</a>
+<ul>
+<li>Added: Range http://purl.org/net/p-plan#Variable</li>
+<li>Added: domain http://purl.org/net/p-plan#Step</li>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://purl.org/net/p-plan#hasOutputVar&gt; &lt;http://purl.org/net/p-plan#isOutputVarOf&gt;)</li>
+<li>Added: rdfs:isDefinedBy http://purl.org/net/p-plan#</li>
+<li>Added: rdfs:label "hasOutputVar"@en</li>
+<li>Added: <http://www.w3.org/ns/prov#definition> "p-plan:hasOutputVar binds a p-plan:Step to the p-plan:Variable that will be produced as output in the planned execution"@en</li>
+</ul>
+</li>
+<li><a href="#http://purl.org/net/p-plan#isStepOfPlan">http://purl.org/net/p-plan#isStepOfPlan</a>
+<ul>
+<li>Added: Range http://purl.org/net/p-plan#Plan</li>
+<li>Added: rdfs:label "isStepOfPlan"@en</li>
+<li>Added: <http://www.w3.org/ns/prov#definition> "p-plan:isStepOfPlan links a p-plan:Step to the p-plan:Plan which it corresponds to."@en</li>
+<li>Added: rdfs:isDefinedBy http://purl.org/net/p-plan#</li>
+<li>Added: domain http://purl.org/net/p-plan#Step</li>
+</ul>
+</li>
+<li><a href="#http://purl.org/net/p-plan#isOutputVarOf">http://purl.org/net/p-plan#isOutputVarOf</a>
+<ul>
+<li>Added: <http://www.w3.org/ns/prov#definition> "p-plan:isOutputVarOf is intended to link an output variable of a step to the step."@en</li>
+<li>Added: rdfs:label "isOutputVarOf"@en</li>
+<li>Added: rdfs:isDefinedBy http://purl.org/net/p-plan#</li>
+<li>Added: domain http://purl.org/net/p-plan#Variable</li>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://purl.org/net/p-plan#hasOutputVar&gt; &lt;http://purl.org/net/p-plan#isOutputVarOf&gt;)</li>
+<li>Added: FunctionalObjectProperty FunctionalObjectProperty(&lt;http://purl.org/net/p-plan#isOutputVarOf&gt;)</li>
+<li>Added: Range http://purl.org/net/p-plan#Step</li>
+</ul>
+</li>
+<li><a href="#http://purl.org/net/p-plan#hasInputVar">http://purl.org/net/p-plan#hasInputVar</a>
+<ul>
+<li>Added: <http://www.w3.org/ns/prov#definition> "p-plan:hasInputVar binds a p-plan:Step to the p-plan:Variable that takes as input for the planned execution"@en</li>
+<li>Added: Range http://purl.org/net/p-plan#Variable</li>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://purl.org/net/p-plan#isInputVarOf&gt; &lt;http://purl.org/net/p-plan#hasInputVar&gt;)</li>
+<li>Added: rdfs:isDefinedBy http://purl.org/net/p-plan#</li>
+<li>Added: rdfs:label "hasInputVar"@en</li>
+<li>Added: domain http://purl.org/net/p-plan#Step</li>
+</ul>
+</li>
+<li><a href="#http://purl.org/net/p-plan#isInputVarOf">http://purl.org/net/p-plan#isInputVarOf</a>
+<ul>
+<li>Added: Range http://purl.org/net/p-plan#Step</li>
+<li>Added: rdfs:isDefinedBy http://purl.org/net/p-plan#</li>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://purl.org/net/p-plan#isInputVarOf&gt; &lt;http://purl.org/net/p-plan#hasInputVar&gt;)</li>
+<li>Added: domain http://purl.org/net/p-plan#Variable</li>
+<li>Added: <http://www.w3.org/ns/prov#definition> "p-plan:isInputVarOf links an input variable of a step to the step."@en</li>
+<li>Added: rdfs:label "isInputVarOf"@en</li>
+</ul>
+</li>
+</ul><p><u>Added properties</u></p>
+<ul><li><a href="#http://www.w3.org/ns/prov#wasInformedBy">http://www.w3.org/ns/prov#wasInformedBy</a>
+<ul>
+<li>Added: Range http://www.w3.org/ns/prov#Activity</li>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#wasInfluencedBy</li>
+<li>Added: domain http://www.w3.org/ns/prov#Activity</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#wasStartedBy">http://www.w3.org/ns/prov#wasStartedBy</a>
+<ul>
+<li>Added: domain http://www.w3.org/ns/prov#Activity</li>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#wasInfluencedBy</li>
+<li>Added: Range http://www.w3.org/ns/prov#Entity</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#qualifiedCommunication">http://www.w3.org/ns/prov#qualifiedCommunication</a>
+<ul>
+<li>Added: Range http://www.w3.org/ns/prov#Communication</li>
+<li>Added: domain http://www.w3.org/ns/prov#Activity</li>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#qualifiedInfluence</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#qualifiedPrimarySource">http://www.w3.org/ns/prov#qualifiedPrimarySource</a>
+<ul>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#qualifiedInfluence</li>
+<li>Added: domain http://www.w3.org/ns/prov#Entity</li>
+<li>Added: Range http://www.w3.org/ns/prov#PrimarySource</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#generated">http://www.w3.org/ns/prov#generated</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/ns/prov#generated&gt; &lt;http://www.w3.org/ns/prov#wasGeneratedBy&gt;)</li>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#influenced</li>
+<li>Added: domain http://www.w3.org/ns/prov#Activity</li>
+<li>Added: Range http://www.w3.org/ns/prov#Entity</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#agent">http://www.w3.org/ns/prov#agent</a>
+<ul>
+<li>Added: domain http://www.w3.org/ns/prov#AgentInfluence</li>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#influencer</li>
+<li>Added: Range http://www.w3.org/ns/prov#Agent</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#entity">http://www.w3.org/ns/prov#entity</a>
+<ul>
+<li>Added: Range http://www.w3.org/ns/prov#Entity</li>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#influencer</li>
+<li>Added: domain http://www.w3.org/ns/prov#EntityInfluence</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#actedOnBehalfOf">http://www.w3.org/ns/prov#actedOnBehalfOf</a>
+<ul>
+<li>Added: domain http://www.w3.org/ns/prov#Agent</li>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#wasInfluencedBy</li>
+<li>Added: Range http://www.w3.org/ns/prov#Agent</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#wasAssociatedWith">http://www.w3.org/ns/prov#wasAssociatedWith</a>
+<ul>
+<li>Added: Range http://www.w3.org/ns/prov#Agent</li>
+<li>Added: domain http://www.w3.org/ns/prov#Activity</li>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#wasInfluencedBy</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#qualifiedAssociation">http://www.w3.org/ns/prov#qualifiedAssociation</a>
+<ul>
+<li>Added: Range http://www.w3.org/ns/prov#Association</li>
+<li>Added: domain http://www.w3.org/ns/prov#Activity</li>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#qualifiedInfluence</li>
+</ul>
+</li>
+<li><a href="#http://purl.org/net/p-plan#correspondsToVariable">http://purl.org/net/p-plan#correspondsToVariable</a>
+<ul>
+<li>Added: domain http://purl.org/net/p-plan#Entity</li>
+<li>Added: Range http://purl.org/net/p-plan#Variable</li>
+<li>Added: FunctionalObjectProperty FunctionalObjectProperty(&lt;http://purl.org/net/p-plan#correspondsToVariable&gt;)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#wasGeneratedBy">http://www.w3.org/ns/prov#wasGeneratedBy</a>
+<ul>
+<li>Added: Range http://www.w3.org/ns/prov#Activity</li>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#wasInfluencedBy</li>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/ns/prov#generated&gt; &lt;http://www.w3.org/ns/prov#wasGeneratedBy&gt;)</li>
+<li>Added: domain http://www.w3.org/ns/prov#Entity</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#qualifiedDerivation">http://www.w3.org/ns/prov#qualifiedDerivation</a>
+<ul>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#qualifiedInfluence</li>
+<li>Added: Range http://www.w3.org/ns/prov#Derivation</li>
+<li>Added: domain http://www.w3.org/ns/prov#Entity</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#atLocation">http://www.w3.org/ns/prov#atLocation</a>
+<ul>
+<li>Added: domain Union of (http://www.w3.org/ns/prov#Activity, http://www.w3.org/ns/prov#Agent, http://www.w3.org/ns/prov#Entity, http://www.w3.org/ns/prov#InstantaneousEvent)</li>
+<li>Added: Range http://www.w3.org/ns/prov#Location</li>
+</ul>
+</li>
+<li><a href="#http://purl.org/net/p-plan#isSubPlanOfPlan">http://purl.org/net/p-plan#isSubPlanOfPlan</a>
+<ul>
+<li>Added: domain http://purl.org/net/p-plan#Plan</li>
+<li>Added: Range http://purl.org/net/p-plan#Plan</li>
+<li>Added: SubProperty of http://www.w3.org/2002/07/owl#topObjectProperty</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#wasQuotedFrom">http://www.w3.org/ns/prov#wasQuotedFrom</a>
+<ul>
+<li>Added: domain http://www.w3.org/ns/prov#Entity</li>
+<li>Added: Range http://www.w3.org/ns/prov#Entity</li>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#wasDerivedFrom</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#hadGeneration">http://www.w3.org/ns/prov#hadGeneration</a>
+<ul>
+<li>Added: Range http://www.w3.org/ns/prov#Generation</li>
+<li>Added: domain http://www.w3.org/ns/prov#Derivation</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#hadUsage">http://www.w3.org/ns/prov#hadUsage</a>
+<ul>
+<li>Added: Range http://www.w3.org/ns/prov#Usage</li>
+<li>Added: domain http://www.w3.org/ns/prov#Derivation</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#wasInvalidatedBy">http://www.w3.org/ns/prov#wasInvalidatedBy</a>
+<ul>
+<li>Added: domain http://www.w3.org/ns/prov#Entity</li>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/ns/prov#invalidated&gt; &lt;http://www.w3.org/ns/prov#wasInvalidatedBy&gt;)</li>
+<li>Added: Range http://www.w3.org/ns/prov#Activity</li>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#wasInfluencedBy</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#influencer">http://www.w3.org/ns/prov#influencer</a>
+<ul>
+<li>Added: Range http://www.w3.org/2002/07/owl#Thing</li>
+<li>Added: domain http://www.w3.org/ns/prov#Influence</li>
+</ul>
+</li>
+<li><a href="#http://purl.org/net/p-plan#isDecomposedAsPlan">http://purl.org/net/p-plan#isDecomposedAsPlan</a>
+<ul>
+<li>Added: domain http://purl.org/net/p-plan#MultiStep</li>
+<li>Added: Range http://purl.org/net/p-plan#Plan</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#qualifiedInvalidation">http://www.w3.org/ns/prov#qualifiedInvalidation</a>
+<ul>
+<li>Added: Range http://www.w3.org/ns/prov#Invalidation</li>
+<li>Added: domain http://www.w3.org/ns/prov#Entity</li>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#qualifiedInfluence</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#qualifiedEnd">http://www.w3.org/ns/prov#qualifiedEnd</a>
+<ul>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#qualifiedInfluence</li>
+<li>Added: domain http://www.w3.org/ns/prov#Activity</li>
+<li>Added: Range http://www.w3.org/ns/prov#End</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#influenced">http://www.w3.org/ns/prov#influenced</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/ns/prov#influenced&gt; &lt;http://www.w3.org/ns/prov#wasInfluencedBy&gt;)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#qualifiedStart">http://www.w3.org/ns/prov#qualifiedStart</a>
+<ul>
+<li>Added: Range http://www.w3.org/ns/prov#Start</li>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#qualifiedInfluence</li>
+<li>Added: domain http://www.w3.org/ns/prov#Activity</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#alternateOf">http://www.w3.org/ns/prov#alternateOf</a>
+<ul>
+<li>Added: Range http://www.w3.org/ns/prov#Entity</li>
+<li>Added: domain http://www.w3.org/ns/prov#Entity</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#hadActivity">http://www.w3.org/ns/prov#hadActivity</a>
+<ul>
+<li>Added: domain http://www.w3.org/ns/prov#Influence</li>
+<li>Added: domain Union of (http://www.w3.org/ns/prov#Delegation, http://www.w3.org/ns/prov#Derivation, http://www.w3.org/ns/prov#End, http://www.w3.org/ns/prov#Start)</li>
+<li>Added: Range http://www.w3.org/ns/prov#Activity</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#hadRole">http://www.w3.org/ns/prov#hadRole</a>
+<ul>
+<li>Added: domain http://www.w3.org/ns/prov#Influence</li>
+<li>Added: Range http://www.w3.org/ns/prov#Role</li>
+<li>Added: domain Union of (http://www.w3.org/ns/prov#Association, http://www.w3.org/ns/prov#InstantaneousEvent)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#used">http://www.w3.org/ns/prov#used</a>
+<ul>
+<li>Added: domain http://www.w3.org/ns/prov#Activity</li>
+<li>Added: Range http://www.w3.org/ns/prov#Entity</li>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#wasInfluencedBy</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#qualifiedUsage">http://www.w3.org/ns/prov#qualifiedUsage</a>
+<ul>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#qualifiedInfluence</li>
+<li>Added: domain http://www.w3.org/ns/prov#Activity</li>
+<li>Added: Range http://www.w3.org/ns/prov#Usage</li>
+</ul>
+</li>
+<li><a href="#http://purl.org/net/p-plan#correspondsToStep">http://purl.org/net/p-plan#correspondsToStep</a>
+<ul>
+<li>Added: domain http://purl.org/net/p-plan#Activity</li>
+<li>Added: Range http://purl.org/net/p-plan#Step</li>
+<li>Added: FunctionalObjectProperty FunctionalObjectProperty(&lt;http://purl.org/net/p-plan#correspondsToStep&gt;)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#qualifiedGeneration">http://www.w3.org/ns/prov#qualifiedGeneration</a>
+<ul>
+<li>Added: domain http://www.w3.org/ns/prov#Entity</li>
+<li>Added: Range http://www.w3.org/ns/prov#Generation</li>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#qualifiedInfluence</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#qualifiedDelegation">http://www.w3.org/ns/prov#qualifiedDelegation</a>
+<ul>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#qualifiedInfluence</li>
+<li>Added: Range http://www.w3.org/ns/prov#Delegation</li>
+<li>Added: domain http://www.w3.org/ns/prov#Agent</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#wasAttributedTo">http://www.w3.org/ns/prov#wasAttributedTo</a>
+<ul>
+<li>Added: Range http://www.w3.org/ns/prov#Agent</li>
+<li>Added: domain http://www.w3.org/ns/prov#Entity</li>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#wasInfluencedBy</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#qualifiedQuotation">http://www.w3.org/ns/prov#qualifiedQuotation</a>
+<ul>
+<li>Added: domain http://www.w3.org/ns/prov#Entity</li>
+<li>Added: Range http://www.w3.org/ns/prov#Quotation</li>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#qualifiedInfluence</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#hadMember">http://www.w3.org/ns/prov#hadMember</a>
+<ul>
+<li>Added: Range http://www.w3.org/ns/prov#Entity</li>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#wasInfluencedBy</li>
+<li>Added: domain http://www.w3.org/ns/prov#Collection</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#wasRevisionOf">http://www.w3.org/ns/prov#wasRevisionOf</a>
+<ul>
+<li>Added: domain http://www.w3.org/ns/prov#Entity</li>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#wasDerivedFrom</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#activity">http://www.w3.org/ns/prov#activity</a>
+<ul>
+<li>Added: domain http://www.w3.org/ns/prov#ActivityInfluence</li>
+<li>Added: Range http://www.w3.org/ns/prov#Activity</li>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#influencer</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#qualifiedInfluence">http://www.w3.org/ns/prov#qualifiedInfluence</a>
+<ul>
+<li>Added: Range http://www.w3.org/ns/prov#Influence</li>
+<li>Added: domain Union of (http://www.w3.org/ns/prov#Activity, http://www.w3.org/ns/prov#Agent, http://www.w3.org/ns/prov#Entity)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#specializationOf">http://www.w3.org/ns/prov#specializationOf</a>
+<ul>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#alternateOf</li>
+<li>Added: domain http://www.w3.org/ns/prov#Entity</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#wasEndedBy">http://www.w3.org/ns/prov#wasEndedBy</a>
+<ul>
+<li>Added: domain http://www.w3.org/ns/prov#Activity</li>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#wasInfluencedBy</li>
+<li>Added: Range http://www.w3.org/ns/prov#Entity</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#invalidated">http://www.w3.org/ns/prov#invalidated</a>
+<ul>
+<li>Added: domain http://www.w3.org/ns/prov#Activity</li>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/ns/prov#invalidated&gt; &lt;http://www.w3.org/ns/prov#wasInvalidatedBy&gt;)</li>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#influenced</li>
+<li>Added: Range http://www.w3.org/ns/prov#Entity</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#hadPrimarySource">http://www.w3.org/ns/prov#hadPrimarySource</a>
+<ul>
+<li>Added: Range http://www.w3.org/ns/prov#Entity</li>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#wasDerivedFrom</li>
+<li>Added: domain http://www.w3.org/ns/prov#Entity</li>
+</ul>
+</li>
+<li><a href="#http://purl.org/net/p-plan#isPrecededBy">http://purl.org/net/p-plan#isPrecededBy</a>
+<ul>
+<li>Added: TransitiveObjectProperty TransitiveObjectProperty(&lt;http://purl.org/net/p-plan#isPrecededBy&gt;)</li>
+<li>Added: Range http://purl.org/net/p-plan#Step</li>
+<li>Added: domain http://purl.org/net/p-plan#Step</li>
+</ul>
+</li>
+<li><a href="#http://purl.org/net/p-plan#isVariableOfPlan">http://purl.org/net/p-plan#isVariableOfPlan</a>
+<ul>
+<li>Added: Range http://purl.org/net/p-plan#Plan</li>
+<li>Added: domain http://purl.org/net/p-plan#Variable</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#wasInfluencedBy">http://www.w3.org/ns/prov#wasInfluencedBy</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/ns/prov#influenced&gt; &lt;http://www.w3.org/ns/prov#wasInfluencedBy&gt;)</li>
+<li>Added: Range Union of (http://www.w3.org/ns/prov#Activity, http://www.w3.org/ns/prov#Agent, http://www.w3.org/ns/prov#Entity)</li>
+<li>Added: domain Union of (http://www.w3.org/ns/prov#Activity, http://www.w3.org/ns/prov#Agent, http://www.w3.org/ns/prov#Entity)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#qualifiedRevision">http://www.w3.org/ns/prov#qualifiedRevision</a>
+<ul>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#qualifiedInfluence</li>
+<li>Added: Range http://www.w3.org/ns/prov#Revision</li>
+<li>Added: domain http://www.w3.org/ns/prov#Entity</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#qualifiedAttribution">http://www.w3.org/ns/prov#qualifiedAttribution</a>
+<ul>
+<li>Added: domain http://www.w3.org/ns/prov#Entity</li>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#qualifiedInfluence</li>
+<li>Added: Range http://www.w3.org/ns/prov#Attribution</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#hadPlan">http://www.w3.org/ns/prov#hadPlan</a>
+<ul>
+<li>Added: domain http://www.w3.org/ns/prov#Association</li>
+<li>Added: Range http://www.w3.org/ns/prov#Plan</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#wasDerivedFrom">http://www.w3.org/ns/prov#wasDerivedFrom</a>
+<ul>
+<li>Added: domain http://www.w3.org/ns/prov#Entity</li>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#wasInfluencedBy</li>
+<li>Added: Range http://www.w3.org/ns/prov#Entity</li>
+</ul>
+</li>
+</ul><h3 id="changeDataProp" class="list">Data Properties</h3>
+<p><u>Added data properties</u></p>
+<ul><li><a href="#http://www.w3.org/ns/prov#endedAtTime">http://www.w3.org/ns/prov#endedAtTime</a>
+<ul>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#dateTime</li>
+<li>Added: Domain http://www.w3.org/ns/prov#Activity</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#generatedAtTime">http://www.w3.org/ns/prov#generatedAtTime</a>
+<ul>
+<li>Added: Domain http://www.w3.org/ns/prov#Entity</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#dateTime</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#startedAtTime">http://www.w3.org/ns/prov#startedAtTime</a>
+<ul>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#dateTime</li>
+<li>Added: Domain http://www.w3.org/ns/prov#Activity</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#value">http://www.w3.org/ns/prov#value</a>
+<ul>
+<li>Added: Domain http://www.w3.org/ns/prov#Entity</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#invalidatedAtTime">http://www.w3.org/ns/prov#invalidatedAtTime</a>
+<ul>
+<li>Added: Domain http://www.w3.org/ns/prov#Entity</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#dateTime</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#atTime">http://www.w3.org/ns/prov#atTime</a>
+<ul>
+<li>Added: Domain http://www.w3.org/ns/prov#InstantaneousEvent</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#dateTime</li>
+</ul>
+</li>
+</ul></div>
