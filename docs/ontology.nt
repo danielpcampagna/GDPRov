@@ -390,7 +390,7 @@ _:genid1 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.org/adaptce
 # http://purl.org/adaptcentre/openscience/ontologies/gdprov#ArchiveConsentActivity
 <http://purl.org/adaptcentre/openscience/ontologies/gdprov#ArchiveConsentActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://purl.org/adaptcentre/openscience/ontologies/gdprov#ArchiveConsentActivity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/adaptcentre/openscience/ontologies/gdprov#ConsentActivity> .
-<http://purl.org/adaptcentre/openscience/ontologies/gdprov#ArchiveConsentActivity> <http://www.w3.org/2000/01/rdf-schema#label> "An activity that archives given/acquired consent for storage." .
+<http://purl.org/adaptcentre/openscience/ontologies/gdprov#ArchiveConsentActivity> <http://www.w3.org/2000/01/rdf-schema#comment> "An activity that archives given/acquired consent for storage." .
 <http://purl.org/adaptcentre/openscience/ontologies/gdprov#ArchiveConsentActivity> <http://www.w3.org/2000/01/rdf-schema#label> "Archive Consent Activity" .
 <http://purl.org/adaptcentre/openscience/ontologies/gdprov#ArchiveConsentActivity> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.org/adaptcentre/openscience/ontologies/gdprov#ConsentArchivalStep> .
 # 
@@ -483,7 +483,7 @@ _:genid1 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.org/adaptce
 <http://purl.org/adaptcentre/openscience/ontologies/gdprov#Controller> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://purl.org/adaptcentre/openscience/ontologies/gdprov#Controller> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/adaptcentre/openscience/ontologies/gdprov#ThirdParty> .
 <http://purl.org/adaptcentre/openscience/ontologies/gdprov#Controller> <http://www.w3.org/2000/01/rdf-schema#comment> "A ThirdPartyDataController is a Third Party entity that acts as a Data Controller"@en .
-<http://purl.org/adaptcentre/openscience/ontologies/gdprov#Controller> <http://www.w3.org/2000/01/rdf-schema#label> <http://purl.org/adaptcentre/openscience/ontologies/GDPRtEXT#Controller> .
+<http://purl.org/adaptcentre/openscience/ontologies/gdprov#Controller> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/adaptcentre/openscience/ontologies/GDPRtEXT#Controller> .
 <http://purl.org/adaptcentre/openscience/ontologies/gdprov#Controller> <http://www.w3.org/2000/01/rdf-schema#label> "Controller"@en .
 # 
 # http://purl.org/adaptcentre/openscience/ontologies/gdprov#ControllerRepresentative
@@ -683,6 +683,7 @@ _:genid1 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.org/adaptce
 # http://purl.org/adaptcentre/openscience/ontologies/gdprov#DataStepWithoutProvenance
 <http://purl.org/adaptcentre/openscience/ontologies/gdprov#DataStepWithoutProvenance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://purl.org/adaptcentre/openscience/ontologies/gdprov#DataStepWithoutProvenance> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/adaptcentre/openscience/ontologies/gdprov#DataStep> .
+<http://purl.org/adaptcentre/openscience/ontologies/gdprov#DataStepWithoutProvenance> <http://www.w3.org/2000/01/rdf-schema#label> "Data Step without Provenance" .
 # 
 # http://purl.org/adaptcentre/openscience/ontologies/gdprov#DataStorageActivity
 <http://purl.org/adaptcentre/openscience/ontologies/gdprov#DataStorageActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -710,6 +711,7 @@ _:genid1 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.org/adaptce
 # http://purl.org/adaptcentre/openscience/ontologies/gdprov#DataTransferActivity
 <http://purl.org/adaptcentre/openscience/ontologies/gdprov#DataTransferActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://purl.org/adaptcentre/openscience/ontologies/gdprov#DataTransferActivity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/adaptcentre/openscience/ontologies/gdprov#DataActivity> .
+<http://purl.org/adaptcentre/openscience/ontologies/gdprov#DataTransferActivity> <http://www.w3.org/2000/01/rdf-schema#label> "Data Transfer Activity" .
 # 
 # http://purl.org/adaptcentre/openscience/ontologies/gdprov#DataTransferStep
 <http://purl.org/adaptcentre/openscience/ontologies/gdprov#DataTransferStep> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -860,7 +862,6 @@ _:genid1 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.org/adaptce
 # http://purl.org/adaptcentre/openscience/ontologies/gdprov#ImpactAssessment
 <http://purl.org/adaptcentre/openscience/ontologies/gdprov#ImpactAssessment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://purl.org/adaptcentre/openscience/ontologies/gdprov#ImpactAssessment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/adaptcentre/openscience/ontologies/gdprov#Process> .
-<http://purl.org/adaptcentre/openscience/ontologies/gdprov#ImpactAssessment> <http://www.w3.org/2000/01/rdf-schema#comment> "Impact Assessment for the organisation" .
 <http://purl.org/adaptcentre/openscience/ontologies/gdprov#ImpactAssessment> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the process or collection of steps representing the Impact Assessment." .
 <http://purl.org/adaptcentre/openscience/ontologies/gdprov#ImpactAssessment> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/adaptcentre/openscience/ontologies/GDPRtEXT#ImpactAssessment> .
 <http://purl.org/adaptcentre/openscience/ontologies/gdprov#ImpactAssessment> <http://www.w3.org/2000/01/rdf-schema#label> "Impact Assessment" .

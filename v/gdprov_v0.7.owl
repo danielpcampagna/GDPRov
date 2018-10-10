@@ -1485,7 +1485,7 @@
         <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Appoint Processor</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#ArchiveConsentActivity</IRI>
         <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">An activity that archives given/acquired consent for storage.</Literal>
     </AnnotationAssertion>
@@ -1705,7 +1705,7 @@
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A ThirdPartyDataController is a Third Party entity that acts as a Data Controller</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
         <IRI>#Controller</IRI>
         <AbbreviatedIRI>gdprtext:Controller</AbbreviatedIRI>
     </AnnotationAssertion>
@@ -2172,6 +2172,11 @@ The deletion is expressed as prov:invalidated over the dataset.</Literal>
         <IRI>#DataActivity</IRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#DataStepWithoutProvenance</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Data Step without Provenance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#DataStorageActivity</IRI>
         <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Is an activity that stores data.</Literal>
@@ -2225,6 +2230,11 @@ The deletion is expressed as prov:invalidated over the dataset.</Literal>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#DataSubject</IRI>
         <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Data Subject</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#DataTransferActivity</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Data Transfer Activity</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -2545,11 +2555,6 @@ The deletion is expressed as prov:invalidated over the dataset.</Literal>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#HandleSAR</IRI>
         <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">HandleSAR</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#ImpactAssessment</IRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Impact Assessment for the organisation</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>

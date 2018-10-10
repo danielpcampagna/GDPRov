@@ -702,7 +702,7 @@
 
     <owl:Class rdf:about="http://purl.org/adaptcentre/openscience/ontologies/gdprov#ArchiveConsentActivity">
         <rdfs:subClassOf rdf:resource="http://purl.org/adaptcentre/openscience/ontologies/gdprov#ConsentActivity"/>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An activity that archives given/acquired consent for storage.</rdfs:label>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An activity that archives given/acquired consent for storage.</rdfs:comment>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Archive Consent Activity</rdfs:label>
         <rdfs:seeAlso rdf:resource="http://purl.org/adaptcentre/openscience/ontologies/gdprov#ConsentArchivalStep"/>
     </owl:Class>
@@ -850,7 +850,7 @@
     <owl:Class rdf:about="http://purl.org/adaptcentre/openscience/ontologies/gdprov#Controller">
         <rdfs:subClassOf rdf:resource="http://purl.org/adaptcentre/openscience/ontologies/gdprov#ThirdParty"/>
         <rdfs:comment xml:lang="en">A ThirdPartyDataController is a Third Party entity that acts as a Data Controller</rdfs:comment>
-        <rdfs:label rdf:resource="http://purl.org/adaptcentre/openscience/ontologies/GDPRtEXT#Controller"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/adaptcentre/openscience/ontologies/GDPRtEXT#Controller"/>
         <rdfs:label xml:lang="en">Controller</rdfs:label>
     </owl:Class>
     
@@ -1182,6 +1182,7 @@ The deletion is expressed as prov:invalidated over the dataset.</rdfs:comment>
 
     <owl:Class rdf:about="http://purl.org/adaptcentre/openscience/ontologies/gdprov#DataStepWithoutProvenance">
         <rdfs:subClassOf rdf:resource="http://purl.org/adaptcentre/openscience/ontologies/gdprov#DataStep"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Data Step without Provenance</rdfs:label>
     </owl:Class>
     
 
@@ -1229,6 +1230,7 @@ The deletion is expressed as prov:invalidated over the dataset.</rdfs:comment>
 
     <owl:Class rdf:about="http://purl.org/adaptcentre/openscience/ontologies/gdprov#DataTransferActivity">
         <rdfs:subClassOf rdf:resource="http://purl.org/adaptcentre/openscience/ontologies/gdprov#DataActivity"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Data Transfer Activity</rdfs:label>
     </owl:Class>
     
 
@@ -1489,7 +1491,6 @@ The deletion is expressed as prov:invalidated over the dataset.</rdfs:comment>
 
     <owl:Class rdf:about="http://purl.org/adaptcentre/openscience/ontologies/gdprov#ImpactAssessment">
         <rdfs:subClassOf rdf:resource="http://purl.org/adaptcentre/openscience/ontologies/gdprov#Process"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Impact Assessment for the organisation</rdfs:comment>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Represents the process or collection of steps representing the Impact Assessment.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/adaptcentre/openscience/ontologies/GDPRtEXT#ImpactAssessment"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Impact Assessment</rdfs:label>
