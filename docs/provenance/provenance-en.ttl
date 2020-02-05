@@ -6,7 +6,7 @@
 	 prov:wasAttributedTo <https://harshp.com/i/me#HJP>;
 	 dc:creator <https://harshp.com/i/me#HJP>;
 	 prov:wasAttributedTo <https://github.com/dgarijo/Widoco/>,<http://www.essepuntato.it/lode/>;
-	 prov:specializationOf <https://w3id.org/GConsent#>;
-	 prov:wasRevisionOf <https://w3id.org/GDPRov/v/0.7>;
-	 prov:wasGeneratedAt "2018-07-31";
+	 prov:specializationOf <https://w3id.org/GDPRov#>;
+	 prov:wasRevisionOf <https://w3id.org/GDPRov/v/0.6.1>;
+	 prov:wasGeneratedAt "2019-02-12";
 .
