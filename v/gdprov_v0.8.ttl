@@ -419,9 +419,8 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 ###  https://w3id.org/GDPRov#hasFrequency
 :hasFrequency rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf owl:topObjectProperty ;
-    rdfs:domain :DataRectificationProcess,
-        :Process ;
-    rdfs:range Frequency ;
+    rdfs:domain :DataRectificationProcess, :Process ;
+    rdfs:range <https://w3id.org/dpv#Frequency> ;
     rdfs:comment "Indicates the frequency with which something takes place"@en ;
     rdfs:isDefinedBy <https://www.w3.org/TR/owl-time#hasFrequency> .
   
@@ -446,7 +445,7 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
     rdfs:subPropertyOf <http://www.w3.org/ns/prov#used> ;
     rdfs:domain :DataTransferActivity ;
     rdfs:range :PersonalDataEntity ;
-    rdfs:comment "The beginning of transferring an entity."@en ;
+    rdfs:comment "The beginning of transferring an entity."@en .
 
 #################################################################
 #    Classes
@@ -506,6 +505,10 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/dpv#FixedOccurencesDuration
 <https://w3id.org/dpv#FixedOccurencesDuration> rdf:type owl:Class .
+
+
+###  https://w3id.org/dpv#Frequency
+<https://w3id.org/dpv#Frequency> rdf:type owl:Class .
 
 
 ###  https://www.w3.org/TR/owl-time#Duration
