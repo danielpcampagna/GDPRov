@@ -10,6 +10,7 @@
 @prefix p-plan: <http://purl.org/net/p-plan#> .
 @prefix gdprtext: <https://w3id.org/GDPRtEXT#> .
 @prefix dpv: <https://w3id.org/dpv#> .
+@prefix time: <https://www.w3.org/TR/owl-time/> .
 @base <https://w3id.org/GDPRov> .
 
 <https://w3id.org/GDPRov> rdf:type owl:Ontology ;
