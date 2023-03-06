@@ -443,7 +443,7 @@ p-plan:isStepOfPlan rdf:type owl:ObjectProperty .
 :hasMaxDuration rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf owl:topObjectProperty ;
                     rdfs:domain :Process, :Step ;
-                    rdfs:range Duration ;
+                    rdfs:range :Duration ;
                     rdf:comment "Indicates information about duration"@en ;
                     rdfs:isDefinedBy dpv:hasDuration .
 
