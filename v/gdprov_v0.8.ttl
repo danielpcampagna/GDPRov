@@ -9,6 +9,7 @@
 @prefix terms: <http://purl.org/dc/terms/> .
 @prefix p-plan: <http://purl.org/net/p-plan#> .
 @prefix gdprtext: <https://w3id.org/GDPRtEXT#> .
+@prefix dpv: <https://w3id.org/dpv#> .
 @base <https://w3id.org/GDPRov> .
 
 <https://w3id.org/GDPRov> rdf:type owl:Ontology ;
