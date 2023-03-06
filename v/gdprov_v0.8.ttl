@@ -3,67 +3,70 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix p-plan: <http://purl.org/net/p-plan#> .
+@prefix gdprtext: <https://w3id.org/GDPRtEXT#> .
 @base <https://w3id.org/GDPRov> .
 
 <https://w3id.org/GDPRov> rdf:type owl:Ontology ;
-                           owl:versionIRI <https://openscience.adaptcentre.ie/ontologies/gdprov/v/gdprov_v0.8.owl> ;
-                           owl:imports <http://purl.org/net/p-plan#> ,
-                                       <http://www.w3.org/ns/prov-o-20130430> ,
-                                       <https://www.w3.org/TR/owl-time> ,
-                                       <https://w3id.org/dpv> ;
-                           <http://purl.org/dc/terms/abstract> "The General Data Protection Regulation (GDPR) is an European law governing the use of consent and personal data. Some of its obligations involve concepts related to the lifecycles of consent and personal data. Such obligations are concerned with how the collection, use, processing, sharing, and storing of consent and personal data takes place and provides the motivation for a form of documentation that can demonstrate the required information towards compliance. GDPRov is an OWL2 ontology for representing this information as provenance metadata using terms relevant to the GDPR. It extends PROV-O and P-Plan to represent the lifecyles as an abstract model of how things should happen or will happen (future) as well as instance of what has happened (past). The ontology is being developed as part of contributions towards PhD research by its primary author." ;
-                           <http://purl.org/dc/terms/created> "2017-08-01"^^xsd:date ;
-                           <http://purl.org/dc/terms/creator> "http://purl.org/adaptcentre/people/dave_lewis"^^xsd:anyURI ,
-                                                              "http://purl.org/adaptcentre/people/harshvardhan_pandit"^^xsd:anyURI ;
-                           <http://purl.org/dc/terms/description> "GDPRov is an OWL2 ontology to express provenance metadata of consent and data lifecycles towards documenting compliance for GDPR." ;
-                           <http://purl.org/dc/terms/license> "https://creativecommons.org/licenses/by/4.0/" ;
-                           <http://purl.org/dc/terms/modified> "2018-04-06" ;
-                           <http://purl.org/dc/terms/title> "The GDPR Provenance ontology" ;
-                           <http://purl.org/vocab/vann/preferredNamespacePrefix> "gdprov" ;
-                           <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/GDPRov#"^^xsd:anyURI ;
+                           owl:versionIRI <https://openscience.adaptcentre.ie/ontologies/gdprov/v/gdprov_v0.7.owl> ;
+                           owl:imports p-plan: ,
+                                       <http://www.w3.org/ns/prov-o-20130430> ;
+                           terms:creator "http://purl.org/adaptcentre/people/harshvardhan_pandit"^^xsd:anyURI ;
+                           vann:preferredNamespacePrefix "gdprov" ;
+                           vann:preferredNamespaceUri "https://w3id.org/GDPRov#"^^xsd:anyURI ;
+                           terms:title "The GDPR Provenance ontology" ;
+                           terms:creator "http://purl.org/adaptcentre/people/dave_lewis"^^xsd:anyURI ;
+                           terms:created "2017-08-01"^^xsd:date ;
+                           terms:modified "2018-04-06" ;
+                           owl:versionInfo "0.7"^^xsd:string ;
+                           terms:description "GDPRov is an OWL2 ontology to express provenance metadata of consent and data lifecycles towards documenting compliance for GDPR." ;
+                           terms:abstract "The General Data Protection Regulation (GDPR) is an European law governing the use of consent and personal data. Some of its obligations involve concepts related to the lifecycles of consent and personal data. Such obligations are concerned with how the collection, use, processing, sharing, and storing of consent and personal data takes place and provides the motivation for a form of documentation that can demonstrate the required information towards compliance. GDPRov is an OWL2 ontology for representing this information as provenance metadata using terms relevant to the GDPR. It extends PROV-O and P-Plan to represent the lifecyles as an abstract model of how things should happen or will happen (future) as well as instance of what has happened (past). The ontology is being developed as part of contributions towards PhD research by its primary author." ;
+                           terms:license "https://creativecommons.org/licenses/by/4.0/" ;
                            rdfs:comment "GDPRov is an ontology for expressing provenance metadata in the context of the General Data Protection Regulation (GDPR) and its compliance. It extends PROV-O and P-Plan. PROV-O is the ontology based on the PROV model, a W3C recommendation, while P-Plan is an extension of PROV-O. PROV is used to define terms or 'instances' of what has happened in the past, while P-Plan is used to define the abstract model or 'Plan' of things to happen. GDPRov uses P-Plan to create a template/model/plan as an abstract or model representation of a system which is then recorded using PROV-O instances to show something has happened. The aim of the ontology is to enable representation of consent and personal data lifecycles using terms relevant to GDPR and to facilitate expression of this information towards documentation related to compliance." ;
-                           owl:versionIRI "https://openscience.adaptcentre.ie/ontologies/gdprov/v/gdprov.0.8.owl" ;
-                           owl:versionInfo "0.8" .
+                           owl:versionIRI "https://openscience.adaptcentre.ie/ontologies/gdprov/v/gdprov.0.7.owl"^^xsd:string .
 
 #################################################################
 #    Annotation properties
 #################################################################
 
 ###  http://purl.org/dc/terms/abstract
-<http://purl.org/dc/terms/abstract> rdf:type owl:AnnotationProperty .
+terms:abstract rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/created
-<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
+terms:created rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/creator
-<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+terms:creator rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/description
-<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+terms:description rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/license
-<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
+terms:license rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/modified
-<http://purl.org/dc/terms/modified> rdf:type owl:AnnotationProperty .
+terms:modified rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/title
-<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+terms:title rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/vocab/vann/preferredNamespacePrefix
-<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/vocab/vann/preferredNamespaceUri
-<http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.w3.org/2002/07/owl#versionIRI
@@ -75,43 +78,23 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 #################################################################
 
 ###  http://purl.org/net/p-plan#hasInputVar
-<http://purl.org/net/p-plan#hasInputVar> rdf:type owl:ObjectProperty .
+p-plan:hasInputVar rdf:type owl:ObjectProperty .
 
 
 ###  http://purl.org/net/p-plan#hasOutputVar
-<http://purl.org/net/p-plan#hasOutputVar> rdf:type owl:ObjectProperty .
+p-plan:hasOutputVar rdf:type owl:ObjectProperty .
 
 
 ###  http://purl.org/net/p-plan#isInputVarOf
-<http://purl.org/net/p-plan#isInputVarOf> rdf:type owl:ObjectProperty .
+p-plan:isInputVarOf rdf:type owl:ObjectProperty .
 
 
 ###  http://purl.org/net/p-plan#isOutputVarOf
-<http://purl.org/net/p-plan#isOutputVarOf> rdf:type owl:ObjectProperty .
+p-plan:isOutputVarOf rdf:type owl:ObjectProperty .
 
 
 ###  http://purl.org/net/p-plan#isStepOfPlan
-<http://purl.org/net/p-plan#isStepOfPlan> rdf:type owl:ObjectProperty .
-
-
-###  https://www.w3.org/TR/owl-time#hasStorageCondition
-<https://www.w3.org/TR/owl-time#hasStorageCondition>  rdf:type owl:ObjectProperty .
-
-
-###  https://www.w3.org/TR/owl-time#hasDuration
-<https://www.w3.org/TR/owl-time#hasDuration>  rdf:type owl:ObjectProperty .
-
-
-###  https://www.w3.org/TR/owl-time#hasFrequency
-<https://www.w3.org/TR/owl-time#hasFrequency>  rdf:type owl:ObjectProperty .
-
-
-###  <http://www.w3.org/ns/prov#wasAssociatedWith
-<http://www.w3.org/ns/prov#wasAssociatedWith>  rdf:type owl:ObjectProperty .
-
-
-###  <http://www.w3.org/ns/prov#used
-<http://www.w3.org/ns/prov#used>  rdf:type owl:ObjectProperty .
+p-plan:isStepOfPlan rdf:type owl:ObjectProperty .
 
 
 ###  https://w3id.org/GDPRov#anonymityLevel
@@ -124,7 +107,7 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/GDPRov#archivesConsentAs
 :archivesConsentAs rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf <http://purl.org/net/p-plan#hasOutputVar> ;
+                   rdfs:subPropertyOf p-plan:hasOutputVar ;
                    rdfs:domain :ConsentArchivalStep ;
                    rdfs:range :ConsentAgreement ;
                    rdfs:comment "Archives the consent into some entity" ;
@@ -135,26 +118,26 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 :collectedConsentFromAgent rdf:type owl:ObjectProperty ;
                            rdfs:subPropertyOf :involvesAgent ;
                            rdfs:domain :AcquireConsentActivity ;
-                           rdfs:range <http://www.w3.org/ns/prov#Agent> .
+                           rdfs:range prov:Agent .
 
 
 ###  https://w3id.org/GDPRov#collectedDataFromAgent
 :collectedDataFromAgent rdf:type owl:ObjectProperty ;
                         rdfs:subPropertyOf :involvesAgent ;
                         rdfs:domain :DataCollectionActivity ;
-                        rdfs:range <http://www.w3.org/ns/prov#Agent> .
+                        rdfs:range prov:Agent .
 
 
 ###  https://w3id.org/GDPRov#collectsConsentFromAgent
 :collectsConsentFromAgent rdf:type owl:ObjectProperty ;
                           rdfs:subPropertyOf :involvesAgent ;
                           rdfs:domain :ConsentAcquisitionStep ;
-                          rdfs:range <http://www.w3.org/ns/prov#Agent> .
+                          rdfs:range prov:Agent .
 
 
 ###  https://w3id.org/GDPRov#collectsData
 :collectsData rdf:type owl:ObjectProperty ;
-              rdfs:subPropertyOf <http://purl.org/net/p-plan#hasOutputVar> ;
+              rdfs:subPropertyOf p-plan:hasOutputVar ;
               owl:inverseOf :isDataCollectedByStep ;
               rdfs:domain :DataStep ;
               rdfs:range :Data ;
@@ -166,7 +149,7 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 :collectsDataFromAgent rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf :involvesAgent ;
                        rdfs:domain :DataCollectionStep ;
-                       rdfs:range <http://www.w3.org/ns/prov#Agent> .
+                       rdfs:range prov:Agent .
 
 
 ###  https://w3id.org/GDPRov#generatesAnonymisedData
@@ -181,7 +164,7 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/GDPRov#generatesConsentAgreement
 :generatesConsentAgreement rdf:type owl:ObjectProperty ;
-                           rdfs:subPropertyOf <http://purl.org/net/p-plan#hasOutputVar> ;
+                           rdfs:subPropertyOf p-plan:hasOutputVar ;
                            owl:inverseOf :isGeneratedByStep ;
                            rdfs:domain :ConsentStep ;
                            rdfs:range :ConsentAgreement ;
@@ -191,7 +174,7 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/GDPRov#generatesData
 :generatesData rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf <http://purl.org/net/p-plan#hasOutputVar> ;
+               rdfs:subPropertyOf p-plan:hasOutputVar ;
                owl:inverseOf :isDataGeneratedBy ;
                rdfs:domain :DataStep ;
                rdfs:range :Data ;
@@ -209,14 +192,14 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/GDPRov#hasLegalBasis
 :hasLegalBasis rdf:type owl:ObjectProperty ;
-               rdfs:range <https://w3id.org/GDPRtEXT#LawfulBasisForProcessing> ;
+               rdfs:range gdprtext:LawfulBasisForProcessing ;
                rdfs:label "hasLegalBasis"^^rdfs:Literal .
 
 
 ###  https://w3id.org/GDPRov#hasLegalJustification
 :hasLegalJustification rdf:type owl:ObjectProperty ;
-                       rdfs:domain <http://purl.org/net/p-plan#Activity> ;
-                       rdfs:range <https://w3id.org/GDPRtEXT#LawfulBasisForProcessing> ;
+                       rdfs:domain p-plan:Activity ;
+                       rdfs:range gdprtext:LawfulBasisForProcessing ;
                        rdfs:label "has legal justification" ;
                        owl:deprecated "true"^^xsd:boolean .
 
@@ -224,7 +207,7 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 ###  https://w3id.org/GDPRov#hasSharedDataWith
 :hasSharedDataWith rdf:type owl:ObjectProperty ;
                    rdfs:domain :DataSharingActivity ;
-                   rdfs:range <http://www.w3.org/ns/prov#Agent> ;
+                   rdfs:range prov:Agent ;
                    rdfs:label "hasSharedDataWith"^^rdfs:Literal .
 
 
@@ -236,7 +219,7 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/GDPRov#involvesAgent
 :involvesAgent rdf:type owl:ObjectProperty ;
-               rdfs:range <http://www.w3.org/ns/prov#Agent> .
+               rdfs:range prov:Agent .
 
 
 ###  https://w3id.org/GDPRov#isAnonymisedByStep
@@ -247,39 +230,39 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/GDPRov#isConsentAgreementTemplateForStep
 :isConsentAgreementTemplateForStep rdf:type owl:ObjectProperty ;
-                                   rdfs:subPropertyOf <http://purl.org/net/p-plan#isInputVarOf> ;
+                                   rdfs:subPropertyOf p-plan:isInputVarOf ;
                                    owl:inverseOf :usesConsentAgreementTemplate ;
                                    rdfs:label "isConsentAgreementTemplateForStep" .
 
 
 ###  https://w3id.org/GDPRov#isDataCollectedByStep
 :isDataCollectedByStep rdf:type owl:ObjectProperty ;
-                       rdfs:subPropertyOf <http://purl.org/net/p-plan#isOutputVarOf> ;
+                       rdfs:subPropertyOf p-plan:isOutputVarOf ;
                        rdfs:label "isDataCollectedByStep" .
 
 
 ###  https://w3id.org/GDPRov#isDataGeneratedBy
 :isDataGeneratedBy rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf <http://purl.org/net/p-plan#isOutputVarOf> ;
+                   rdfs:subPropertyOf p-plan:isOutputVarOf ;
                    rdfs:label "isDataGeneratedByStep" .
 
 
 ###  https://w3id.org/GDPRov#isGeneratedByStep
 :isGeneratedByStep rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf <http://purl.org/net/p-plan#isOutputVarOf> ;
+                   rdfs:subPropertyOf p-plan:isOutputVarOf ;
                    rdfs:label "isGeneratedByStep" .
 
 
 ###  https://w3id.org/GDPRov#isJustificationForDataStep
 :isJustificationForDataStep rdf:type owl:ObjectProperty ;
-                            rdfs:subPropertyOf <http://purl.org/net/p-plan#isInputVarOf> ;
+                            rdfs:subPropertyOf p-plan:isInputVarOf ;
                             owl:inverseOf :isJustifiedUsingConsentAgreement ;
                             rdfs:label "isJustificationForDataStep" .
 
 
 ###  https://w3id.org/GDPRov#isJustifiedUsingConsentAgreement
 :isJustifiedUsingConsentAgreement rdf:type owl:ObjectProperty ;
-                                  rdfs:subPropertyOf <http://purl.org/net/p-plan#hasInputVar> ;
+                                  rdfs:subPropertyOf p-plan:hasInputVar ;
                                   rdfs:domain :DataStep ;
                                   rdfs:range :ConsentAgreement ;
                                   rdfs:comment "justifies use of data by step through specified consent agreement" ;
@@ -288,20 +271,20 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/GDPRov#isPartOfProcess
 :isPartOfProcess rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf <http://purl.org/net/p-plan#isStepOfPlan> ;
+                 rdfs:subPropertyOf p-plan:isStepOfPlan ;
                  rdfs:label "isPartOfProcess"^^rdfs:Literal .
 
 
 ###  https://w3id.org/GDPRov#isTermsAndConditionsForStep
 :isTermsAndConditionsForStep rdf:type owl:ObjectProperty ;
-                             rdfs:subPropertyOf <http://purl.org/net/p-plan#isInputVarOf> ;
+                             rdfs:subPropertyOf p-plan:isInputVarOf ;
                              owl:inverseOf :usesTermsAndConditions ;
                              rdfs:label "isTermsAndConditionsForStep" .
 
 
 ###  https://w3id.org/GDPRov#isUsedByStep
 :isUsedByStep rdf:type owl:ObjectProperty ;
-              rdfs:subPropertyOf <http://purl.org/net/p-plan#isInputVarOf> ;
+              rdfs:subPropertyOf p-plan:isInputVarOf ;
               owl:inverseOf :usesData ;
               rdfs:label "isUsedByStep" .
 
@@ -313,7 +296,7 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/GDPRov#sharesData
 :sharesData rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf <http://purl.org/net/p-plan#hasInputVar> ;
+            rdfs:subPropertyOf p-plan:hasInputVar ;
             owl:inverseOf :wasSharedBy ;
             rdfs:domain :DataSharingStep ;
             rdfs:range :Data ;
@@ -324,7 +307,7 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 ###  https://w3id.org/GDPRov#sharesDataWith
 :sharesDataWith rdf:type owl:ObjectProperty ;
                 rdfs:domain :DataSharingStep ;
-                rdfs:range <http://www.w3.org/ns/prov#Agent> ;
+                rdfs:range prov:Agent ;
                 rdfs:label "sharesDataWith" .
 
 
@@ -352,7 +335,7 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/GDPRov#usesConsentAgreement
 :usesConsentAgreement rdf:type owl:ObjectProperty ;
-                      rdfs:subPropertyOf <http://purl.org/net/p-plan#hasInputVar> ;
+                      rdfs:subPropertyOf p-plan:hasInputVar ;
                       rdfs:domain :ConsentStep ;
                       rdfs:range :ConsentAgreement ;
                       rdfs:comment "uses Consent Agreement entity" ;
@@ -361,7 +344,7 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/GDPRov#usesConsentAgreementTemplate
 :usesConsentAgreementTemplate rdf:type owl:ObjectProperty ;
-                              rdfs:subPropertyOf <http://purl.org/net/p-plan#hasInputVar> ;
+                              rdfs:subPropertyOf p-plan:hasInputVar ;
                               rdfs:domain :ConsentAcquisitionStep ;
                               rdfs:range :ConsentAgreementTemplate ;
                               rdfs:comment "links a Consent Acquisition Step with the Consent Agreement Template used to acquire consent" ;
@@ -370,7 +353,7 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/GDPRov#usesData
 :usesData rdf:type owl:ObjectProperty ;
-          rdfs:subPropertyOf <http://purl.org/net/p-plan#hasInputVar> ;
+          rdfs:subPropertyOf p-plan:hasInputVar ;
           rdfs:domain :DataStep ;
           rdfs:range :Data ;
           rdfs:comment "links step with data used" ;
@@ -379,7 +362,7 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/GDPRov#usesTermsAndConditions
 :usesTermsAndConditions rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf <http://purl.org/net/p-plan#hasInputVar> ;
+                        rdfs:subPropertyOf p-plan:hasInputVar ;
                         rdfs:domain :ConsentAcquisitionStep ;
                         rdfs:range :TermsAndConditions ;
                         rdfs:comment "Links a Consent Acquisition Step with the Terms and Conditions presented to the user when acquiring Consent" ;
@@ -388,142 +371,49 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/GDPRov#wasSharedBy
 :wasSharedBy rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf <http://purl.org/net/p-plan#isInputVarOf> .
+             rdfs:subPropertyOf p-plan:isInputVarOf .
 
 
 ###  https://w3id.org/GDPRov#wasSharedWithThirdParty
 :wasSharedWithThirdParty rdf:type owl:ObjectProperty ;
-                         rdfs:subPropertyOf <http://purl.org/net/p-plan#isInputVarOf> ;
+                         rdfs:subPropertyOf p-plan:isInputVarOf ;
                          rdfs:domain :Data ;
                          rdfs:range :ThirdParty .
 
-
-###  https://w3id.org/GDPRov#hasStorageCondition
-:hasStorageCondition rdf:type owl:ObjectProperty ;
-    rdfs:subPropertyOf owl:topObjectProperty ;
-    rdfs:domain :HandleDataCollectionProcess, :Process ;
-    rdfs:range :StorageCondition ;
-    rdfs:comment "Indicates the conditions required or followed regarding storage of data"@en ;
-    rdfs:isDefinedBy <https://www.w3.org/TR/owl-time#hasStorageCondition> .
-
-
-###  https://w3id.org/GDPRov#hasDuration
-:hasDuration rdf:type owl:ObjectProperty ;
-    rdfs:subPropertyOf owl:topObjectProperty ;
-    rdfs:domain :StorageCondition, :Process ;
-    rdfs:range :Duration ;
-    rdfs:comment "Indicates information about duration"@en ;
-    rdfs:isDefinedBy <https://www.w3.org/TR/owl-time#hasDuration> .
-
-
-###  https://w3id.org/GDPRov#hasFrequency
-:hasFrequency rdf:type owl:ObjectProperty ;
-    rdfs:subPropertyOf owl:topObjectProperty ;
-    rdfs:domain :DataRectificationProcess, :Process ;
-    rdfs:range <https://w3id.org/dpv#Frequency> ;
-    rdfs:comment "Indicates the frequency with which something takes place"@en ;
-    rdfs:isDefinedBy <https://www.w3.org/TR/owl-time#hasFrequency> .
-  
-
-###  https://w3id.org/GDPRov#invalidatedData
-:invalidatedData rdf:type owl:ObjectProperty ;
-    rdfs:subPropertyOf owl:topObjectProperty ;
-    rdfs:domain :DataDeletionActivity ;
-    rdfs:range :DataEntity .
-
-
-###  https://w3id.org/GDPRov#wasTransferredWith
-:wasTransferredWith rdf:type owl:ObjectProperty ;
-    rdfs:subPropertyOf  <http://www.w3.org/ns/prov#wasAssociatedWith> ;
-    rdfs:domain  :DataTransferActivity ;
-    rdfs:range  <http://www.w3.org/ns/prov#Agent> ;
-    rdfs:comment  "An association indicating that the agent participated in the sharing activity"@en .
-
-
-###  https://w3id.org/GDPRov#transferred
-:transferred rdf:type owl:ObjectProperty ;
-    rdfs:subPropertyOf <http://www.w3.org/ns/prov#used> ;
-    rdfs:domain :DataTransferActivity ;
-    rdfs:range :PersonalDataEntity ;
-    rdfs:comment "The beginning of transferring an entity."@en .
 
 #################################################################
 #    Classes
 #################################################################
 
 ###  http://purl.org/net/p-plan#Activity
-<http://purl.org/net/p-plan#Activity> rdf:type owl:Class .
+p-plan:Activity rdf:type owl:Class .
 
 
 ###  http://purl.org/net/p-plan#Entity
-<http://purl.org/net/p-plan#Entity> rdf:type owl:Class .
+p-plan:Entity rdf:type owl:Class .
 
 
 ###  http://purl.org/net/p-plan#Plan
-<http://purl.org/net/p-plan#Plan> rdf:type owl:Class .
+p-plan:Plan rdf:type owl:Class .
 
 
 ###  http://purl.org/net/p-plan#Step
-<http://purl.org/net/p-plan#Step> rdf:type owl:Class .
+p-plan:Step rdf:type owl:Class .
 
 
 ###  http://purl.org/net/p-plan#Variable
-<http://purl.org/net/p-plan#Variable> rdf:type owl:Class .
+p-plan:Variable rdf:type owl:Class .
 
 
 ###  http://www.w3.org/ns/prov#Agent
-<http://www.w3.org/ns/prov#Agent> rdf:type owl:Class .
-
-
-###  https://w3id.org/dpv#ProcessingContext
-<https://w3id.org/dpv#ProcessingContext> rdf:type owl:Class .
-
-
-###  https://w3id.org/dpv#StorageCondition
-<https://w3id.org/dpv#StorageCondition> rdf:type owl:Class .
-
-
-###  https://w3id.org/dpv#Duration
-<https://w3id.org/dpv#Duration> rdf:type owl:Class .
-
-
-###  https://w3id.org/dpv#TemporalDuration
-<https://w3id.org/dpv#TemporalDuration> rdf:type owl:Class .
-
-
-###  https://w3id.org/dpv#UntilTimeDuration
-<https://w3id.org/dpv#UntilTimeDuration> rdf:type owl:Class .
-
-
-###  https://w3id.org/dpv#UntilEventDuration
-<https://w3id.org/dpv#UntilEventDuration> rdf:type owl:Class .
-
-
-###  https://w3id.org/dpv#EndlessDuration
-<https://w3id.org/dpv#EndlessDuration> rdf:type owl:Class .
-
-
-###  https://w3id.org/dpv#FixedOccurencesDuration
-<https://w3id.org/dpv#FixedOccurencesDuration> rdf:type owl:Class .
-
-
-###  https://w3id.org/dpv#Frequency
-<https://w3id.org/dpv#Frequency> rdf:type owl:Class .
-
-
-###  https://www.w3.org/TR/owl-time#Duration
-<https://www.w3.org/TR/owl-time#Duration>  rdf:type owl:Class .
-
-
-###  http://www.w3.org/ns/prov#Agent
-<http://www.w3.org/ns/prov#Agent>  rdf:type owl:Class .
+prov:Agent rdf:type owl:Class .
 
 
 ###  https://w3id.org/GDPRov#AcquireConsentActivity
 :AcquireConsentActivity rdf:type owl:Class ;
                         rdfs:subClassOf :ConsentActivity ;
                         rdfs:comment "Is an activity that acquires consent." ;
-                        rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#ObtainingConsent> ;
+                        rdfs:isDefinedBy gdprtext:ObtainingConsent ;
                         rdfs:label "Acquire Consent Activity" ;
                         rdfs:seeAlso :ConsentAcquisitionStep .
 
@@ -544,8 +434,8 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
                                   owl:someValuesFrom :AnonymityLevel
                                 ] ;
                 rdfs:comment "Represents data that has been Anonymised at some level reflected by the hasAnonymityLevel object property" ;
-                rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#AnonymousData> ,
-                                 <https://w3id.org/GDPRtEXT#PseudoAnonymousData> ;
+                rdfs:isDefinedBy gdprtext:AnonymousData ,
+                                 gdprtext:PseudoAnonymousData ;
                 rdfs:label "AnonymisedData" ;
                 rdfs:seeAlso :AnonymisedDataEntity .
 
@@ -554,8 +444,8 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 :AnonymisedDataEntity rdf:type owl:Class ;
                       rdfs:subClassOf :PersonalDataEntity ;
                       rdfs:comment "Is an entity where personal data has been anonymised to some extent." ;
-                      rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#AnonymousData> ,
-                                       <https://w3id.org/GDPRtEXT#PseudoAnonymousData> ;
+                      rdfs:isDefinedBy gdprtext:AnonymousData ,
+                                       gdprtext:PseudoAnonymousData ;
                       rdfs:label "Anonymised Data Entity" ;
                       rdfs:seeAlso :AnonymisedData .
 
@@ -563,8 +453,8 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 ###  https://w3id.org/GDPRov#AnonymityLevel
 :AnonymityLevel rdf:type owl:Class ;
                 rdfs:comment "Provides a way to express the Anonymity Level of AnonymisedData objects through the object property hasAnonymityLevel" ;
-                rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#AnonymousData> ,
-                                 <https://w3id.org/GDPRtEXT#PseudoAnonymousData> ;
+                rdfs:isDefinedBy gdprtext:AnonymousData ,
+                                 gdprtext:PseudoAnonymousData ;
                 rdfs:label "AnonymityLevel" .
 
 
@@ -572,7 +462,7 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 :AppointProcessor rdf:type owl:Class ;
                   rdfs:subClassOf :Process ;
                   rdfs:comment "Reflects the process(es) used to appoint processors" ;
-                  rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#AppointmentOfProcessors> ;
+                  rdfs:isDefinedBy gdprtext:AppointmentOfProcessors ;
                   rdfs:label "Appoint Processor" .
 
 
@@ -586,7 +476,7 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/GDPRov#AutomatedStep
 :AutomatedStep rdf:type owl:Class ;
-               rdfs:subClassOf <http://purl.org/net/p-plan#Step> ;
+               rdfs:subClassOf p-plan:Step ;
                rdfs:label "AutomatedStep"^^rdfs:Literal .
 
 
@@ -594,41 +484,41 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 :ConsentAcquisitionStep rdf:type owl:Class ;
                         rdfs:subClassOf :ConsentStep ;
                         rdfs:comment "ConsentAcquisitionStep deals with acquiring consent from the user. It uses Terms and Conditions along with the appropriate Consent Model as the basis of obtaining consent from the user. The output of this step is the consent object agreed upon by the user."@en ;
-                        rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#ObtainingConsent> ;
+                        rdfs:isDefinedBy gdprtext:ObtainingConsent ;
                         rdfs:label "Consent Acquisition Step"@en ;
                         rdfs:seeAlso :AcquireConsentActivity .
 
 
 ###  https://w3id.org/GDPRov#ConsentActivity
 :ConsentActivity rdf:type owl:Class ;
-                 rdfs:subClassOf <http://purl.org/net/p-plan#Activity> ;
+                 rdfs:subClassOf p-plan:Activity ;
                  rdfs:comment "Is an activity dealing with consent." ;
-                 rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#ConsentActivity> ;
+                 rdfs:isDefinedBy gdprtext:ConsentActivity ;
                  rdfs:label "Consent Activity" ;
                  rdfs:seeAlso :ConsentStep .
 
 
 ###  https://w3id.org/GDPRov#ConsentAgreement
 :ConsentAgreement rdf:type owl:Class ;
-                  rdfs:subClassOf <http://purl.org/net/p-plan#Variable> ;
+                  rdfs:subClassOf p-plan:Variable ;
                   owl:disjointWith :ConsentAgreementTemplate ,
                                    :Data ,
                                    :TermsAndConditions ;
                   rdfs:comment "ConsentAgreement reflects the consent provided by the user based on the provided Terms and Conditions and Consent Agreement Templates. It is the set of permissions the user has specifically provided or refused to provide. This consent is useful to provide justification of activities that use user data."@en ;
-                  rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#GivenConsent> ;
+                  rdfs:isDefinedBy gdprtext:GivenConsent ;
                   rdfs:label "ConsentAgreement"@en ;
                   rdfs:seeAlso :GivenConsent .
 
 
 ###  https://w3id.org/GDPRov#ConsentAgreementTemplate
 :ConsentAgreementTemplate rdf:type owl:Class ;
-                          rdfs:subClassOf <http://purl.org/net/p-plan#Variable> ;
+                          rdfs:subClassOf p-plan:Variable ;
                           owl:disjointWith :Data ,
                                            :TermsAndConditions ;
                           rdfs:comment "This is a template for consent requested from the user."@en ;
-                          rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#Consent> ,
-                                           <https://w3id.org/GDPRtEXT#ObligationForObtainingConsent> ,
-                                           <https://w3id.org/GDPRtEXT#ValidConsent> ;
+                          rdfs:isDefinedBy gdprtext:Consent ,
+                                           gdprtext:ObligationForObtainingConsent ,
+                                           gdprtext:ValidConsent ;
                           rdfs:label "ConsentAgreementTemplate"@en ;
                           rdfs:seeAlso :GivenConsentTemplate .
 
@@ -637,7 +527,7 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 :ConsentArchivalStep rdf:type owl:Class ;
                      rdfs:subClassOf :ConsentStep ;
                      rdfs:comment "ConsentArchivalStep archives acquired consent to form a record of the consent given by the user."@en ;
-                     rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#DemonstratingConsent> ;
+                     rdfs:isDefinedBy gdprtext:DemonstratingConsent ;
                      rdfs:label "Consent Archival Step"@en ;
                      rdfs:seeAlso :ArchiveConsentActivity .
 
@@ -646,16 +536,16 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 :ConsentModificationStep rdf:type owl:Class ;
                          rdfs:subClassOf :ConsentStep ;
                          rdfs:comment "ConsentModificationStep deals with modifications to the consent by the user. It invalidates the previous consent object and produces a new updated consent object that represents the modified consent."@en ;
-                         rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#ObligationForObtainingConsent> ;
+                         rdfs:isDefinedBy gdprtext:ObligationForObtainingConsent ;
                          rdfs:label "Consent Modification Step"@en ;
                          rdfs:seeAlso :ModifyConsentActivity .
 
 
 ###  https://w3id.org/GDPRov#ConsentStep
 :ConsentStep rdf:type owl:Class ;
-             rdfs:subClassOf <http://purl.org/net/p-plan#Step> ;
+             rdfs:subClassOf p-plan:Step ;
              rdfs:comment "A ConsentStep acts/interacts with/uses Consent"@en ;
-             rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#ConsentActivity> ;
+             rdfs:isDefinedBy gdprtext:ConsentActivity ;
              rdfs:label "Consent Step"@en ;
              rdfs:seeAlso :ConsentActivity .
 
@@ -664,7 +554,7 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 :ConsentWithdrawalProcess rdf:type owl:Class ;
                           rdfs:subClassOf :Process ;
                           rdfs:comment "A ConsentWithdrawalProcess deals with the withdrawal of consent by the user and the corresponding activity carried out within the system"@en ;
-                          rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#WithdrawingConsent> ;
+                          rdfs:isDefinedBy gdprtext:WithdrawingConsent ;
                           rdfs:label "Consent Withdrawal Process"@en ;
                           rdfs:seeAlso :ConsentWithdrawalStep .
 
@@ -673,8 +563,8 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 :ConsentWithdrawalStep rdf:type owl:Class ;
                        rdfs:subClassOf :ConsentModificationStep ;
                        rdfs:comment "ConsentWithdrawalStep deals with withdrawal of consent"@en ;
-                       rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#CanBeWithdrawnEasilyConsentObligation> ,
-                                        <https://w3id.org/GDPRtEXT#WithdrawingConsent> ;
+                       rdfs:isDefinedBy gdprtext:CanBeWithdrawnEasilyConsentObligation ,
+                                        gdprtext:WithdrawingConsent ;
                        rdfs:label "Consent Withdrawal Step"@en ;
                        rdfs:seeAlso :WithdrawConsentActivity .
 
@@ -683,15 +573,15 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 :Controller rdf:type owl:Class ;
             rdfs:subClassOf :ThirdParty ;
             rdfs:comment "A ThirdPartyDataController is a Third Party entity that acts as a Data Controller"@en ;
-            rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#Controller> ;
+            rdfs:isDefinedBy gdprtext:Controller ;
             rdfs:label "Controller"@en .
 
 
 ###  https://w3id.org/GDPRov#ControllerRepresentative
 :ControllerRepresentative rdf:type owl:Class ;
-                          rdfs:subClassOf <http://www.w3.org/ns/prov#Agent> ;
+                          rdfs:subClassOf prov:Agent ;
                           rdfs:comment "A Representative of the Controller" ;
-                          rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#ControllerRepresentative> ;
+                          rdfs:isDefinedBy gdprtext:ControllerRepresentative ;
                           rdfs:label "Controller Representative" .
 
 
@@ -699,7 +589,7 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 :CrossBorderDataTransfer rdf:type owl:Class ;
                          rdfs:subClassOf :DataStep ;
                          rdfs:comment "Reflects cross-border transfer of data" ;
-                         rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#CrossBorderTransfer> ;
+                         rdfs:isDefinedBy gdprtext:CrossBorderTransfer ;
                          rdfs:label "Cross-border Data Transfer" ;
                          rdfs:seeAlso :CrossBorderTransferActivity .
 
@@ -708,25 +598,25 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 :CrossBorderTransferActivity rdf:type owl:Class ;
                              rdfs:subClassOf :DataActivity ;
                              rdfs:comment "Is an activity that transfer data across borders (as defined in the GDPR)." ;
-                             rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#CrossBorderTransfer> ;
+                             rdfs:isDefinedBy gdprtext:CrossBorderTransfer ;
                              rdfs:label "Cross Border Transfer Activity" ;
                              rdfs:seeAlso :CrossBorderDataTransfer .
 
 
 ###  https://w3id.org/GDPRov#DPO
 :DPO rdf:type owl:Class ;
-     rdfs:subClassOf <http://www.w3.org/ns/prov#Agent> ;
+     rdfs:subClassOf prov:Agent ;
      rdfs:comment "The Data Protection Officer appointed to an organisation." ;
-     rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#DPO> ;
+     rdfs:isDefinedBy gdprtext:DPO ;
      rdfs:label "Data Protection Officer (DPO)" .
 
 
 ###  https://w3id.org/GDPRov#Data
 :Data rdf:type owl:Class ;
-      rdfs:subClassOf <http://purl.org/net/p-plan#Variable> ;
+      rdfs:subClassOf p-plan:Variable ;
       owl:disjointWith :TermsAndConditions ;
       rdfs:comment "Represents class of data collected or generated through various activities"@en ;
-      rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#Data> ;
+      rdfs:isDefinedBy gdprtext:Data ;
       rdfs:label "Data"@en ;
       rdfs:seeAlso :DataEntity .
 
@@ -735,15 +625,15 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 :DataAccessProcess rdf:type owl:Class ;
                    rdfs:subClassOf :Process ;
                    rdfs:comment "A DataAccessProcess corresponds to the request made by an user for access to their data within the system. This process is responsible for handling the request process and providing the appropriate data to the end user."@en ;
-                   rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#ProvideCopyOfPersonalData> ;
+                   rdfs:isDefinedBy gdprtext:ProvideCopyOfPersonalData ;
                    rdfs:label "Data Access Process"@en .
 
 
 ###  https://w3id.org/GDPRov#DataActivity
 :DataActivity rdf:type owl:Class ;
-              rdfs:subClassOf <http://purl.org/net/p-plan#Activity> ;
+              rdfs:subClassOf p-plan:Activity ;
               rdfs:comment "Is an activity involving data." ;
-              rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#DataActivity> ;
+              rdfs:isDefinedBy gdprtext:DataActivity ;
               rdfs:label "Data Activity" ;
               rdfs:seeAlso :DataStep .
 
@@ -762,7 +652,7 @@ Anonymisation can be represented as a spectrum going from raw user data to pseud
                       rdfs:subClassOf :DataStorageActivity ,
                                       :DataTransformationActivity ;
                       rdfs:comment "Is an activity that archives data. Archival is transformation of data into some form for storage." ;
-                      rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#ArchiveData> ;
+                      rdfs:isDefinedBy gdprtext:ArchiveData ;
                       rdfs:label "Data Archival Activity" ;
                       rdfs:seeAlso :DataArchivalStep .
 
@@ -771,7 +661,7 @@ Anonymisation can be represented as a spectrum going from raw user data to pseud
 :DataArchivalProcess rdf:type owl:Class ;
                      rdfs:subClassOf :Process ;
                      rdfs:comment "A DataArchivalProcess describes the process of data archival"@en ;
-                     rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#ArchiveData> ;
+                     rdfs:isDefinedBy gdprtext:ArchiveData ;
                      rdfs:label "Data Archival Process"@en .
 
 
@@ -780,33 +670,33 @@ Anonymisation can be represented as a spectrum going from raw user data to pseud
                   rdfs:subClassOf :DataStorageStep ,
                                   :DataTransformationStep ;
                   rdfs:comment "DataArchivalStep archives data by transforming it and storing it"@en ;
-                  rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#ArchiveData> ;
+                  rdfs:isDefinedBy gdprtext:ArchiveData ;
                   rdfs:label "Data Archival Step"@en ;
                   rdfs:seeAlso :DataArchivalActivity .
 
 
 ###  https://w3id.org/GDPRov#DataBreachActivity
 :DataBreachActivity rdf:type owl:Class ;
-                    rdfs:subClassOf <http://purl.org/net/p-plan#Activity> ;
+                    rdfs:subClassOf p-plan:Activity ;
                     rdfs:comment "Is an activity dealing with data breach." ;
-                    rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#ReportDataBreach> ;
+                    rdfs:isDefinedBy gdprtext:ReportDataBreach ;
                     rdfs:label "Data Breach Activity" ;
                     rdfs:seeAlso :DataBreachStep .
 
 
 ###  https://w3id.org/GDPRov#DataBreachRecord
 :DataBreachRecord rdf:type owl:Class ;
-                  rdfs:subClassOf <http://purl.org/net/p-plan#Variable> ;
+                  rdfs:subClassOf p-plan:Variable ;
                   rdfs:comment "A record of a data breach." ;
-                  rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#MaintainRecordOfBreach> ;
+                  rdfs:isDefinedBy gdprtext:MaintainRecordOfBreach ;
                   rdfs:label "Data Breach Record" .
 
 
 ###  https://w3id.org/GDPRov#DataBreachStep
 :DataBreachStep rdf:type owl:Class ;
-                rdfs:subClassOf <http://purl.org/net/p-plan#Step> ;
+                rdfs:subClassOf p-plan:Step ;
                 rdfs:comment "Step representing an action associated with data breach." ;
-                rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#ReportDataBreach> ;
+                rdfs:isDefinedBy gdprtext:ReportDataBreach ;
                 rdfs:label "Data Breach Step" ;
                 rdfs:seeAlso :DataBreachActivity .
 
@@ -815,7 +705,7 @@ Anonymisation can be represented as a spectrum going from raw user data to pseud
 :DataCollectionActivity rdf:type owl:Class ;
                         rdfs:subClassOf :DataActivity ;
                         rdfs:comment "Is an activity that collects or acquires data." ;
-                        rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#CollectionOfPersonalData> ;
+                        rdfs:isDefinedBy gdprtext:CollectionOfPersonalData ;
                         rdfs:label "Data Collection Activity" ;
                         rdfs:seeAlso :DataCollectionStep .
 
@@ -824,7 +714,7 @@ Anonymisation can be represented as a spectrum going from raw user data to pseud
 :DataCollectionStep rdf:type owl:Class ;
                     rdfs:subClassOf :DataStep ;
                     rdfs:comment "DataCollectionStep collects data from the user"@en ;
-                    rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#CollectionOfPersonalData> ;
+                    rdfs:isDefinedBy gdprtext:CollectionOfPersonalData ;
                     rdfs:label "Data Collection Step"@en ;
                     rdfs:seeAlso :DataCollectionActivity .
 
@@ -841,7 +731,7 @@ Anonymisation can be represented as a spectrum going from raw user data to pseud
 :DataDeletionActivity rdf:type owl:Class ;
                       rdfs:subClassOf :DataActivity ;
                       rdfs:comment "Is an activity that deletes or erases data." ;
-                      rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#EraseData> ;
+                      rdfs:isDefinedBy gdprtext:EraseData ;
                       rdfs:label "Data Deletion Activity" ;
                       rdfs:seeAlso :DataDeletionStep .
 
@@ -851,16 +741,16 @@ Anonymisation can be represented as a spectrum going from raw user data to pseud
                   rdfs:subClassOf :DataStep ;
                   rdfs:comment """DataDeletionStep deletes data from within the system;
 The deletion is expressed as prov:invalidated over the dataset."""@en ;
-                  rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#EraseData> ;
+                  rdfs:isDefinedBy gdprtext:EraseData ;
                   rdfs:label "Data Deletion Step"@en ;
                   rdfs:seeAlso :DataDeletionActivity .
 
 
 ###  https://w3id.org/GDPRov#DataEntity
 :DataEntity rdf:type owl:Class ;
-            rdfs:subClassOf <http://purl.org/net/p-plan#Entity> ;
+            rdfs:subClassOf p-plan:Entity ;
             rdfs:comment "Represents a data entity." ;
-            rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#Data> ;
+            rdfs:isDefinedBy gdprtext:Data ;
             rdfs:label "Data Entity" ;
             rdfs:seeAlso :Data .
 
@@ -869,7 +759,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :DataErasureProcess rdf:type owl:Class ;
                     rdfs:subClassOf :Process ;
                     rdfs:comment "A DataErasureProcess is responsible for handling the data erasure of a data subject."@en ;
-                    rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#EraseData> ;
+                    rdfs:isDefinedBy gdprtext:EraseData ;
                     rdfs:label "Data Erasure Process"@en .
 
 
@@ -877,7 +767,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :DataRectificationProcess rdf:type owl:Class ;
                           rdfs:subClassOf :Process ;
                           rdfs:comment "A DataRectificationProcess describes the process of data rectification, which is the correction of data already present within the system"@en ;
-                          rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#RectifyData> ;
+                          rdfs:isDefinedBy gdprtext:RectifyData ;
                           rdfs:label "Data Rectification Process"@en .
 
 
@@ -885,7 +775,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :DataSharingActivity rdf:type owl:Class ;
                      rdfs:subClassOf :DataActivity ;
                      rdfs:comment "Is an activity that shares data." ;
-                     rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#ShareDataWithThirdParty> ;
+                     rdfs:isDefinedBy gdprtext:ShareDataWithThirdParty ;
                      rdfs:label "Data Sharing Activity" ;
                      rdfs:seeAlso :DataSharingStep .
 
@@ -894,16 +784,16 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :DataSharingStep rdf:type owl:Class ;
                  rdfs:subClassOf :DataStep ;
                  rdfs:comment "DataSharingStep shares data with another agent/organisation. These may be internal or external entities."@en ;
-                 rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#ShareDataWithThirdParty> ;
+                 rdfs:isDefinedBy gdprtext:ShareDataWithThirdParty ;
                  rdfs:label "Data Sharing Step"@en ;
                  rdfs:seeAlso :DataSharingActivity .
 
 
 ###  https://w3id.org/GDPRov#DataStep
 :DataStep rdf:type owl:Class ;
-          rdfs:subClassOf <http://purl.org/net/p-plan#Step> ;
+          rdfs:subClassOf p-plan:Step ;
           rdfs:comment "A DataStep deals with data"@en ;
-          rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#DataActivity> ;
+          rdfs:isDefinedBy gdprtext:DataActivity ;
           rdfs:label "Data Step"@en ;
           rdfs:seeAlso :DataActivity .
 
@@ -918,7 +808,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :DataStorageActivity rdf:type owl:Class ;
                      rdfs:subClassOf :DataActivity ;
                      rdfs:comment "Is an activity that stores data." ;
-                     rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#StoreData> ;
+                     rdfs:isDefinedBy gdprtext:StoreData ;
                      rdfs:label "Data Storage Activity" ;
                      rdfs:seeAlso :DataStorageStep .
 
@@ -927,16 +817,16 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :DataStorageStep rdf:type owl:Class ;
                  rdfs:subClassOf :DataStep ;
                  rdfs:comment "DataStorageStep stores data within the system"@en ;
-                 rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#StoreData> ;
+                 rdfs:isDefinedBy gdprtext:StoreData ;
                  rdfs:label "Data Storage Step"@en ;
                  rdfs:seeAlso :DataStorageActivity .
 
 
 ###  https://w3id.org/GDPRov#DataSubject
 :DataSubject rdf:type owl:Class ;
-             rdfs:subClassOf <http://www.w3.org/ns/prov#Agent> ;
+             rdfs:subClassOf prov:Agent ;
              rdfs:comment "An individual or entity" ;
-             rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#DataSubject> ;
+             rdfs:isDefinedBy gdprtext:DataSubject ;
              rdfs:label "Data Subject" .
 
 
@@ -972,7 +862,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :DataUsageActivity rdf:type owl:Class ;
                    rdfs:subClassOf :DataActivity ;
                    rdfs:comment "Is an activity that uses data. Can also be termed as 'Processing' of data." ;
-                   rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#UseData> ;
+                   rdfs:isDefinedBy gdprtext:UseData ;
                    rdfs:label "Data Usage Activity" ;
                    rdfs:seeAlso :DataUsageStep .
 
@@ -981,7 +871,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :DataUsageStep rdf:type owl:Class ;
                rdfs:subClassOf :DataStep ;
                rdfs:comment "A DataUsageStep is a DataStep that uses existing data present within the system"@en ;
-               rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#Processing> ;
+               rdfs:isDefinedBy gdprtext:Processing ;
                rdfs:label "Data Usage Step"@en ;
                rdfs:seeAlso :DataUsageActivity .
 
@@ -998,22 +888,22 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :DirectMarketing rdf:type owl:Class ;
                  rdfs:subClassOf :Marketing ;
                  rdfs:comment "Direct Marketing where the marketing is done directly to the data subject." ;
-                 rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#DirectMarketing> ;
+                 rdfs:isDefinedBy gdprtext:DirectMarketing ;
                  rdfs:label "Direct Marketing" .
 
 
 ###  https://w3id.org/GDPRov#GivenConsent
 :GivenConsent rdf:type owl:Class ;
-              rdfs:subClassOf <http://purl.org/net/p-plan#Entity> ;
+              rdfs:subClassOf p-plan:Entity ;
               rdfs:comment "Represents the given consent by the data subject." ;
-              rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#GivenConsent> ;
+              rdfs:isDefinedBy gdprtext:GivenConsent ;
               rdfs:label "Given Consent" ;
               rdfs:seeAlso :ConsentAgreement .
 
 
 ###  https://w3id.org/GDPRov#GivenConsentTemplate
 :GivenConsentTemplate rdf:type owl:Class ;
-                      rdfs:subClassOf <http://purl.org/net/p-plan#Entity> ;
+                      rdfs:subClassOf p-plan:Entity ;
                       rdfs:comment "Is the template used to obtain the given consent." ;
                       rdfs:label "Given Consent Template" ;
                       rdfs:seeAlso :ConsentAgreementTemplate .
@@ -1023,7 +913,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :HandleDataBreachProcess rdf:type owl:Class ;
                          rdfs:subClassOf :Process ;
                          rdfs:comment "A process that defines the actions that should be undertaken in event of a data breach" ;
-                         rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#DataBreach> ;
+                         rdfs:isDefinedBy gdprtext:DataBreach ;
                          rdfs:label "HandleDataBreachProcess" .
 
 
@@ -1031,7 +921,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :HandleRightOfDataPortability rdf:type owl:Class ;
                               rdfs:subClassOf :Process ;
                               rdfs:comment "The process or series of steps that handle the right of data portability." ;
-                              rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#RightOfDataPortability> ;
+                              rdfs:isDefinedBy gdprtext:RightOfDataPortability ;
                               rdfs:label "Handle Right of Data Portability" .
 
 
@@ -1039,7 +929,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :HandleRightOfErasure rdf:type owl:Class ;
                       rdfs:subClassOf :Process ;
                       rdfs:comment "The process or series of steps that handle the right of erasure." ;
-                      rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#RightOfErasure> ;
+                      rdfs:isDefinedBy gdprtext:RightOfErasure ;
                       rdfs:label "Handle Right of Erasure" .
 
 
@@ -1047,7 +937,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :HandleRightToAccessPersonalData rdf:type owl:Class ;
                                  rdfs:subClassOf :Process ;
                                  rdfs:comment "The process or series of steps that handle the right to access personal data." ;
-                                 rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#RightOfErasure> ;
+                                 rdfs:isDefinedBy gdprtext:RightOfErasure ;
                                  rdfs:label "Handle Right to access Personal Data" .
 
 
@@ -1055,7 +945,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :HandleRightToBasicInfoAboutProcessing rdf:type owl:Class ;
                                        rdfs:subClassOf :Process ;
                                        rdfs:comment "The process or series of steps that handle the right to basic information about processing." ;
-                                       rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#RightToBasicInformationAboutProcessing> ;
+                                       rdfs:isDefinedBy gdprtext:RightToBasicInformationAboutProcessing ;
                                        rdfs:label "Handle Right to basic information about Processing" .
 
 
@@ -1063,7 +953,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :HandleRightToNoAutomatedProcessing rdf:type owl:Class ;
                                     rdfs:subClassOf :Process ;
                                     rdfs:comment "The process or series of steps that handle the right to not be processed automatically." ;
-                                    rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#RightToNotBeEvaluatedThroughAutomatedProcessing> ;
+                                    rdfs:isDefinedBy gdprtext:RightToNotBeEvaluatedThroughAutomatedProcessing ;
                                     rdfs:label "Handle Right to not be evaluated through Automated Processing" .
 
 
@@ -1071,7 +961,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :HandleRightToObjectDirectMarketing rdf:type owl:Class ;
                                     rdfs:subClassOf :Process ;
                                     rdfs:comment "The process or series of steps that handle the right to object to direct marketing." ;
-                                    rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#RightToObjectForDirectMarketting> ;
+                                    rdfs:isDefinedBy gdprtext:RightToObjectForDirectMarketting ;
                                     rdfs:label "Handle Right to Object to Direct Marketing" .
 
 
@@ -1079,7 +969,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :HandleRightToObjectProcessing rdf:type owl:Class ;
                                rdfs:subClassOf :Process ;
                                rdfs:comment "The process or series of steps that handle the right to object to processing." ;
-                               rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#RightToObjectToProcessing> ;
+                               rdfs:isDefinedBy gdprtext:RightToObjectToProcessing ;
                                rdfs:label "Handle Right to Object to Processing" .
 
 
@@ -1087,7 +977,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :HandleRightToRectification rdf:type owl:Class ;
                             rdfs:subClassOf :Process ;
                             rdfs:comment "The process or series of steps that handle the right to rectification of personal data." ;
-                            rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#RightToRectification> ;
+                            rdfs:isDefinedBy gdprtext:RightToRectification ;
                             rdfs:label "Handle Right to Rectification" .
 
 
@@ -1095,7 +985,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :HandleRightToRestrictProcessing rdf:type owl:Class ;
                                  rdfs:subClassOf :Process ;
                                  rdfs:comment "The process or series of steps that handle the right to restrict processing." ;
-                                 rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#RightToRestrictProcessing> ;
+                                 rdfs:isDefinedBy gdprtext:RightToRestrictProcessing ;
                                  rdfs:label "Handle Right to restrict Processing" .
 
 
@@ -1103,7 +993,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :HandleRightToTransparency rdf:type owl:Class ;
                            rdfs:subClassOf :Process ;
                            rdfs:comment "The process or series of steps that handle the right to transparency." ;
-                           rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#RightToTransparency> ;
+                           rdfs:isDefinedBy gdprtext:RightToTransparency ;
                            rdfs:label "Handle Right to Transparency" .
 
 
@@ -1117,7 +1007,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :ImpactAssessment rdf:type owl:Class ;
                   rdfs:subClassOf :Process ;
                   rdfs:comment "Represents the process or collection of steps representing the Impact Assessment." ;
-                  rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#ImpactAssessment> ;
+                  rdfs:isDefinedBy gdprtext:ImpactAssessment ;
                   rdfs:label "Impact Assessment" .
 
 
@@ -1125,7 +1015,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :JointController rdf:type owl:Class ;
                  rdfs:subClassOf :Controller ;
                  rdfs:comment "A Joint Controller is where two or more controllers jointly determine the purposes and means of processing." ;
-                 rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#JointController> ;
+                 rdfs:isDefinedBy gdprtext:JointController ;
                  rdfs:label "Joint Controller(s)" .
 
 
@@ -1133,7 +1023,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :Marketing rdf:type owl:Class ;
            rdfs:subClassOf :Process ;
            rdfs:comment "Marketing as a process or collection of steps." ;
-           rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#Marketing> ;
+           rdfs:isDefinedBy gdprtext:Marketing ;
            rdfs:label "Marketing" .
 
 
@@ -1149,7 +1039,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :MonitorCompliance rdf:type owl:Class ;
                    rdfs:subClassOf :Process ;
                    rdfs:comment "The process of monitoring compliance as mandated by the GDPR." ;
-                   rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#MonitorCompliance> ;
+                   rdfs:isDefinedBy gdprtext:MonitorCompliance ;
                    rdfs:label "Monitor Compliance" .
 
 
@@ -1157,7 +1047,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :NotifyController rdf:type owl:Class ;
                   rdfs:subClassOf :DataBreachStep ;
                   rdfs:comment "Step that notifies the controller of data breach." ;
-                  rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#ReportDataBreachToController> ;
+                  rdfs:isDefinedBy gdprtext:ReportDataBreachToController ;
                   rdfs:label "Notify Controller" ;
                   rdfs:seeAlso :NotifyControllerActivity .
 
@@ -1166,7 +1056,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :NotifyControllerActivity rdf:type owl:Class ;
                           rdfs:subClassOf :DataBreachActivity ;
                           rdfs:comment "Is an activity that notifies controller about data breach" ;
-                          rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#ReportDataBreachToController> ;
+                          rdfs:isDefinedBy gdprtext:ReportDataBreachToController ;
                           rdfs:label "Notify Controller Activity" ;
                           rdfs:seeAlso :NotifyController .
 
@@ -1175,7 +1065,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :NotifyDPA rdf:type owl:Class ;
            rdfs:subClassOf :DataBreachStep ;
            rdfs:comment "Step that notifies the Data Protection Authorities of a data breach." ;
-           rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#ReportDataBreachToDPAWithin72Hours> ;
+           rdfs:isDefinedBy gdprtext:ReportDataBreachToDPAWithin72Hours ;
            rdfs:label "Notify Data Protection Authority" ;
            rdfs:seeAlso :NotifyDPAActivity .
 
@@ -1184,7 +1074,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :NotifyDPAActivity rdf:type owl:Class ;
                    rdfs:subClassOf :DataBreachActivity ;
                    rdfs:comment "Is an activity that notifies data protection authorities about data breach" ;
-                   rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#ReportDataBreachToDPAWithin72Hours> ;
+                   rdfs:isDefinedBy gdprtext:ReportDataBreachToDPAWithin72Hours ;
                    rdfs:label "Notify DPA Activity" ;
                    rdfs:seeAlso :NotifyDPA .
 
@@ -1193,7 +1083,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :NotifyDataSubject rdf:type owl:Class ;
                    rdfs:subClassOf :DataBreachStep ;
                    rdfs:comment "Step that notifies the data subject of data breach." ;
-                   rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#NotifyDataSubjectOfBreach> ;
+                   rdfs:isDefinedBy gdprtext:NotifyDataSubjectOfBreach ;
                    rdfs:label "Notify Data Subject" ;
                    rdfs:seeAlso :NotifyDataSubjectActivity .
 
@@ -1202,7 +1092,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :NotifyDataSubjectActivity rdf:type owl:Class ;
                            rdfs:subClassOf :DataBreachActivity ;
                            rdfs:comment "Is an activity that notifies data subjects about data breach" ;
-                           rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#NotifyDataSubjectOfBreach> ;
+                           rdfs:isDefinedBy gdprtext:NotifyDataSubjectOfBreach ;
                            rdfs:label "Notify Data Subject Activity" ;
                            rdfs:seeAlso :NotifyDataSubject .
 
@@ -1211,7 +1101,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :PersonalData rdf:type owl:Class ;
               rdfs:subClassOf :Data ;
               rdfs:comment "PersonalData is any data pertaining to the user which can contain personally identifiable information or a data set generated by the system using personally identifiable information acquired through direct or indirect means"@en ;
-              rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#PersonalData> ;
+              rdfs:isDefinedBy gdprtext:PersonalData ;
               rdfs:label "PersonalData"@en ;
               rdfs:seeAlso :PersonalDataEntity .
 
@@ -1220,14 +1110,14 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :PersonalDataEntity rdf:type owl:Class ;
                     rdfs:subClassOf :DataEntity ;
                     rdfs:comment "Represents a personal data entity." ;
-                    rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#PersonalData> ;
+                    rdfs:isDefinedBy gdprtext:PersonalData ;
                     rdfs:label "Personal Data Entity" ;
                     rdfs:seeAlso :PersonalData .
 
 
 ###  https://w3id.org/GDPRov#Process
 :Process rdf:type owl:Class ;
-         rdfs:subClassOf <http://purl.org/net/p-plan#Plan> ;
+         rdfs:subClassOf p-plan:Plan ;
          rdfs:comment "A Process describes a 'Plan' of action for carrying out a particular activity that uses or is related to Data or Consent"@en ;
          rdfs:label "Process"@en .
 
@@ -1236,15 +1126,15 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :Processor rdf:type owl:Class ;
            rdfs:subClassOf :ThirdParty ;
            rdfs:comment "A ThirdPartyDataProcessor is a Third Party entity that acts as a Data Processor"@en ;
-           rdfs:label <https://w3id.org/GDPRtEXT#Processor> ,
+           rdfs:label gdprtext:Processor ,
                       "Processor"@en .
 
 
 ###  https://w3id.org/GDPRov#ProcessorRepresentative
 :ProcessorRepresentative rdf:type owl:Class ;
-                         rdfs:subClassOf <http://www.w3.org/ns/prov#Agent> ;
+                         rdfs:subClassOf prov:Agent ;
                          rdfs:comment "A representative of the Processor." ;
-                         rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#ProcessorRepresentative> ;
+                         rdfs:isDefinedBy gdprtext:ProcessorRepresentative ;
                          rdfs:label "Processor Representative" .
 
 
@@ -1252,7 +1142,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :ProvideCopyOfPersonalData rdf:type owl:Class ;
                            rdfs:subClassOf :DataStep ;
                            rdfs:comment "A step that provides the data subject with a copy of their personal data." ;
-                           rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#ProvideCopyOfPersonalData> ;
+                           rdfs:isDefinedBy gdprtext:ProvideCopyOfPersonalData ;
                            rdfs:label "Provide copy of Personal Data" .
 
 
@@ -1260,7 +1150,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :RectifyData rdf:type owl:Class ;
              rdfs:subClassOf :DataStep ;
              rdfs:comment "Rectifies existing data" ;
-             rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#RectifyData> ;
+             rdfs:isDefinedBy gdprtext:RectifyData ;
              rdfs:label "Rectify Data" ;
              rdfs:seeAlso :RectifyDataActivity .
 
@@ -1277,7 +1167,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :ReportDataBreach rdf:type owl:Class ;
                   rdfs:subClassOf :HandleDataBreachProcess ;
                   rdfs:comment "The process of reporting after a data breach has taken place." ;
-                  rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#ReportDataBreach> ;
+                  rdfs:isDefinedBy gdprtext:ReportDataBreach ;
                   rdfs:label "Report Data Breach" .
 
 
@@ -1285,7 +1175,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :SensitiveData rdf:type owl:Class ;
                rdfs:subClassOf :PersonalData ;
                rdfs:comment "Personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health or data concerning a natural person's sex life or sexual orientation." ;
-               rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#SensitivePersonalData> ;
+               rdfs:isDefinedBy gdprtext:SensitivePersonalData ;
                rdfs:label "Sensitive Personal Data" ;
                rdfs:seeAlso :SensitiveDataEntity .
 
@@ -1294,7 +1184,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :SensitiveDataEntity rdf:type owl:Class ;
                      rdfs:subClassOf :PersonalDataEntity ;
                      rdfs:comment "Is an entity containing sensitive personal information." ;
-                     rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#SensitivePersonalData> ;
+                     rdfs:isDefinedBy gdprtext:SensitivePersonalData ;
                      rdfs:label "Sensitive Data Entity" ;
                      rdfs:seeAlso :SensitiveData .
 
@@ -1303,13 +1193,13 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :SubProcessor rdf:type owl:Class ;
               rdfs:subClassOf :Processor ;
               rdfs:comment "A Processor appointed under or by another Processor is a Sub-Processor." ;
-              rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#SubProcessor> ;
+              rdfs:isDefinedBy gdprtext:SubProcessor ;
               rdfs:label "Sub-Processor" .
 
 
 ###  https://w3id.org/GDPRov#TermsAndConditions
 :TermsAndConditions rdf:type owl:Class ;
-                    rdfs:subClassOf <http://purl.org/net/p-plan#Variable> ;
+                    rdfs:subClassOf p-plan:Variable ;
                     rdfs:comment "Terms and Conditions of usage as provided to the user in agreement of provided service"@en ;
                     rdfs:label "TermsAndConditions"@en ;
                     rdfs:seeAlso :TermsAndConditionsEntity .
@@ -1317,7 +1207,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 
 ###  https://w3id.org/GDPRov#TermsAndConditionsEntity
 :TermsAndConditionsEntity rdf:type owl:Class ;
-                          rdfs:subClassOf <http://purl.org/net/p-plan#Entity> ;
+                          rdfs:subClassOf p-plan:Entity ;
                           rdfs:comment "Represents the Terms and Conditions entity." ;
                           rdfs:label "Terms and Conditions Entity" ;
                           rdfs:seeAlso :TermsAndConditions .
@@ -1325,9 +1215,9 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 
 ###  https://w3id.org/GDPRov#ThirdParty
 :ThirdParty rdf:type owl:Class ;
-            rdfs:subClassOf <http://www.w3.org/ns/prov#Agent> ;
+            rdfs:subClassOf prov:Agent ;
             rdfs:comment "A ThirdParty is any external entitiy associated with some internal activity"@en ;
-            rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#Entity> ;
+            rdfs:isDefinedBy gdprtext:Entity ;
             rdfs:label "ThirdParty"@en .
 
 
@@ -1355,7 +1245,7 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 
 ###  https://w3id.org/GDPRov#UserInteractionStep
 :UserInteractionStep rdf:type owl:Class ;
-                     rdfs:subClassOf <http://purl.org/net/p-plan#Step> ;
+                     rdfs:subClassOf p-plan:Step ;
                      rdfs:label "User Interaction Step" .
 
 
@@ -1369,82 +1259,13 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
 :WithdrawConsentActivity rdf:type owl:Class ;
                          rdfs:subClassOf :ModifyConsentActivity ;
                          rdfs:comment "Is an activity that withdraws given consent. Can also term it so as to depict withdrawal as a modification of consent." ;
-                         rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#WithdrawingConsent> ;
+                         rdfs:isDefinedBy gdprtext:WithdrawingConsent ;
                          rdfs:label "Withdraw Consent Activity" ;
                          rdfs:seeAlso :ConsentWithdrawalStep .
 
 
-###  https://w3id.org/GDPRov#StorageCondition
-:StorageCondition rdf:type owl:Class ;
-    rdfs:subClassOf <https://w3id.org/dpv#ProcessingContext> ;
-    rdfs:comment "Conditions required or followed regarding storage of data"@en ;
-    rdfs:isDefinedBy <https://w3id.org/dpv#StorageCondition>,
-      <https://w3id.org/GDPRtEXT#ContextOfDataCollection> ,
-      <https://w3id.org/GDPRtEXT#StorageLimitation> ,
-      <https://w3id.org/GDPRtEXT#InfoAboutStoragePeriod> .
-
-
-###  https://w3id.org/GDPRov#Duration
-:Duration rdf:type owl:Class ;
-    rdfs:comment "The duration or temporal limitation"@en ;
-    rdfs:isDefinedBy <https://w3id.org/dpv#Duration> ,
-      <https://www.w3.org/TR/owl-time#Duration> .
-  
-
-###  https://w3id.org/GDPRov#HandleCrossBorderTransferingProcess
-:HandleCrossBorderTransferingProcess rdf:type owl:Class ;
-    rdfs:subClassOf :Process ;
-    rdfs:comment "Describe the process of handling a cross-border transferring"@en ;
-    rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#CrossBorderTransfer>,
-      <https://w3id.org/GDPRtEXT#ShareDataWithThirdParty> .
-
-
-###  https://w3id.org/GDPRov#HandleDataCollectionProcess
-:HandleDataCollectionProcess rdf:type owl:Class ;
-    rdfs:subClassOf :Process ;
-    rdfs:comment "Describe processing involving all steps of data collection from a source, including the collection of the legal base, until the storage of this data."@en ;
-    rdfs:isDefinedBy <https://w3id.org/GDPRtEXT#CollectionOfPersonalData>,
-        <https://w3id.org/GDPRtEXT#ObligationForCollectionOfPersonalData>,
-        <https://w3id.org/GDPRtEXT#StoreData> .
-
-
-###  https://w3id.org/GDPRov#TemporalDuration
-:TemporalDuration rdf:type owl:Class ;
-    rdfs:subClassOf :Duration ;
-    rdfs:comment "The duration that has a fixed temporal duration, e.g. 6 months"@en ;
-    rdfs:isDefinedBy <https://w3id.org/dpv#TemporalDuration> .
-
-
-###  https://w3id.org/GDPRov#UntilTimeDuration
-:UntilTimeDuration rdf:type owl:Class ;
-    rdfs:subClassOf :Duration ;
-    rdfs:comment "The duration that has a fixed end date, e.g. 2022-12-31"@en ;
-    rdfs:isDefinedBy <https://w3id.org/dpv#UntilTimeDuration> .
-
-
-###  https://w3id.org/GDPRov#UntilEventDuration
-:UntilEventDuration rdf:type owl:Class ;
-    rdfs:subClassOf :Duration ;
-    rdfs:comment "The duration that takes place until a specific event occurs, e.g. data is no longer needed for original purpose"@en ;
-    rdfs:isDefinedBy <https://w3id.org/dpv#UntilEventDuration> .
-
-
-###  https://w3id.org/GDPRov#EndlessDuration
-:EndlessDuration rdf:type owl:Class ;
-    rdfs:subClassOf :Duration ;
-    rdfs:comment "The duration that is (known or intended to be) open-ended or without an end"@en ;
-    rdfs:isDefinedBy <https://w3id.org/dpv#EndlessDuration> .
-
-
-###  https://w3id.org/GDPRov#FixedOccurencesDuration
-:FixedOccurencesDuration rdf:type owl:Class ;
-    rdfs:subClassOf :Duration ;
-    rdfs:comment "The duration that takes place a fixed number of times, e.g. 3 times"@en ;
-    rdfs:isDefinedBy <https://w3id.org/dpv#FixedOccurencesDuration> .
-
-
 ###  https://w3id.org/GDPRtEXT#LawfulBasisForProcessing
-<https://w3id.org/GDPRtEXT#LawfulBasisForProcessing> rdf:type owl:Class .
+gdprtext:LawfulBasisForProcessing rdf:type owl:Class .
 
 
 #################################################################
@@ -1475,4 +1296,4 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
                                 rdfs:label "PseudoOrganisationalOrganised" .
 
 
-###  Generated by the OWL API (version 5.1.7) https://github.com/owlcs/owlapi/
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
