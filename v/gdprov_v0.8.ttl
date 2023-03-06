@@ -140,21 +140,24 @@ prov:invalidated rdf:type owl:ObjectProperty .
 :collectedConsentFromAgent rdf:type owl:ObjectProperty ;
                            rdfs:subPropertyOf :involvesAgent ;
                            rdfs:domain :AcquireConsentActivity ;
-                           rdfs:range prov:Agent .
+                           rdfs:range prov:Agent ;
+                           rdfs:label "collected Consent From Agent" .
 
 
 ###  https://w3id.org/GDPRov#collectedDataFromAgent
 :collectedDataFromAgent rdf:type owl:ObjectProperty ;
                         rdfs:subPropertyOf :involvesAgent ;
                         rdfs:domain :DataCollectionActivity ;
-                        rdfs:range prov:Agent .
+                        rdfs:range prov:Agent ;
+                        rdfs:label "collected Data From Agent" .
 
 
 ###  https://w3id.org/GDPRov#collectsConsentFromAgent
 :collectsConsentFromAgent rdf:type owl:ObjectProperty ;
                           rdfs:subPropertyOf :involvesAgent ;
                           rdfs:domain :ConsentAcquisitionStep ;
-                          rdfs:range prov:Agent .
+                          rdfs:range prov:Agent ;
+                          rdfs:label "collects Consent From Agent" .
 
 
 ###  https://w3id.org/GDPRov#collectsData
@@ -171,7 +174,8 @@ prov:invalidated rdf:type owl:ObjectProperty .
 :collectsDataFromAgent rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf :involvesAgent ;
                        rdfs:domain :DataCollectionStep ;
-                       rdfs:range prov:Agent .
+                       rdfs:range prov:Agent ;
+                       rdfs:label "collects Data From Agent" .
 
 
 ###  https://w3id.org/GDPRov#generatesAnonymisedData
@@ -214,6 +218,14 @@ prov:invalidated rdf:type owl:ObjectProperty .
 
 ###  https://w3id.org/GDPRov#hasLegalBasis
 :hasLegalBasis rdf:type owl:ObjectProperty ;
+               rdfs:domain [
+                   a owl:Class ;
+                   owl:unionOf (
+                     :DataActivity
+                     :DataStep
+                     :Process
+                   )
+               ] ;
                rdfs:range gdprtext:LawfulBasisForProcessing ;
                rdfs:label "hasLegalBasis"^^rdfs:Literal .
 
@@ -235,18 +247,36 @@ prov:invalidated rdf:type owl:ObjectProperty .
 
 ###  https://w3id.org/GDPRov#invalidatesData
 :invalidatesData rdf:type owl:ObjectProperty ;
-                 rdfs:domain :DataDeletionActivity, :DataDeletionStep ;
-                 rdfs:range :Data .
+                 rdfs:domain [
+                     a owl:Class ;
+                     owl:unionOf (
+                       :DataDeletionActivity
+                       :DataDeletionStep
+                     )
+                 ] ;
+                 rdfs:range :Data ;
+                 rdfs:label "invalidates Data" .
 
 
 ###  https://w3id.org/GDPRov#involvesAgent
 :involvesAgent rdf:type owl:ObjectProperty ;
-               rdfs:range prov:Agent .
+               rdfs:domain [
+                   a owl:Class ;
+                   owl:unionOf (
+                     :DataActivity
+                     :DataStep
+                     :Process
+                   )
+               ] ;
+               rdfs:range prov:Agent ;
+               rdfs:label "involves Agent" .
 
 
 ###  https://w3id.org/GDPRov#isAnonymisedByStep
 :isAnonymisedByStep rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf :isDataGeneratedBy ;
+                    rdfs:domain :AnonymisedData ;
+                    rdfs:range :DataAnonymisationStep ;
                     rdfs:label "isAnonymisedByStep" .
 
 
@@ -254,30 +284,43 @@ prov:invalidated rdf:type owl:ObjectProperty .
 :isConsentAgreementTemplateForStep rdf:type owl:ObjectProperty ;
                                    rdfs:subPropertyOf p-plan:isInputVarOf ;
                                    owl:inverseOf :usesConsentAgreementTemplate ;
+                                   rdfs:domain :ConsentAgreementTemplate ;
+                                   rdfs:range :ConsentAcquisitionStep ;
                                    rdfs:label "isConsentAgreementTemplateForStep" .
 
 
 ###  https://w3id.org/GDPRov#isDataCollectedByStep
 :isDataCollectedByStep rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf p-plan:isOutputVarOf ;
+                       rdfs:domain :Data ;
+                       rdfs:range :DataStep ;
+                       owl:inverseOf :collectsData ;
                        rdfs:label "isDataCollectedByStep" .
 
 
 ###  https://w3id.org/GDPRov#isDataGeneratedBy
 :isDataGeneratedBy rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf p-plan:isOutputVarOf ;
+                   owl:inverseOf :generatesData ;
+                   rdfs:domain :Data ;
+                   rdfs:range :DataStep ;
                    rdfs:label "isDataGeneratedByStep" .
 
 
 ###  https://w3id.org/GDPRov#isGeneratedByStep
 :isGeneratedByStep rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf p-plan:isOutputVarOf ;
+                   owl:inverseOf :generatesConsentAgreement ;
+                   rdfs:domain :ConsentAgreement ;
+                   rdfs:range :ConsentStep ;
                    rdfs:label "isGeneratedByStep" .
 
 
 ###  https://w3id.org/GDPRov#isJustificationForDataStep
 :isJustificationForDataStep rdf:type owl:ObjectProperty ;
                             rdfs:subPropertyOf p-plan:isInputVarOf ;
+                            rdfs:domain :ConsentAgreement ;
+                            rdfs:range :DataStep ;
                             owl:inverseOf :isJustifiedUsingConsentAgreement ;
                             rdfs:label "isJustificationForDataStep" .
 
@@ -287,6 +330,7 @@ prov:invalidated rdf:type owl:ObjectProperty .
                                   rdfs:subPropertyOf p-plan:hasInputVar ;
                                   rdfs:domain :DataStep ;
                                   rdfs:range :ConsentAgreement ;
+                                  owl:inverseOf :isJustificationForDataStep ;
                                   rdfs:comment "justifies use of data by step through specified consent agreement" ;
                                   rdfs:label "isJustifiedUsingConsentAgreement" .
 
@@ -294,12 +338,16 @@ prov:invalidated rdf:type owl:ObjectProperty .
 ###  https://w3id.org/GDPRov#isPartOfProcess
 :isPartOfProcess rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf p-plan:isStepOfPlan ;
+                 rdfs:domain :DataStep ;
+                 rdfs:range :Process ;
                  rdfs:label "isPartOfProcess"^^rdfs:Literal .
 
 
 ###  https://w3id.org/GDPRov#isTermsAndConditionsForStep
 :isTermsAndConditionsForStep rdf:type owl:ObjectProperty ;
                              rdfs:subPropertyOf p-plan:isInputVarOf ;
+                             rdfs:domain :TermsAndConditions ;
+                             rdfs:range :ConsentAcquisitionStep ;
                              owl:inverseOf :usesTermsAndConditions ;
                              rdfs:label "isTermsAndConditionsForStep" .
 
@@ -307,20 +355,29 @@ prov:invalidated rdf:type owl:ObjectProperty .
 ###  https://w3id.org/GDPRov#isUsedByStep
 :isUsedByStep rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf p-plan:isInputVarOf ;
+              rdfs:domain :Data ;
+              rdfs:range :DataStep ;
               owl:inverseOf :usesData ;
               rdfs:label "isUsedByStep" .
 
 
 ###  https://w3id.org/GDPRov#refersToProcess
 :refersToProcess rdf:type owl:ObjectProperty ;
-                 rdfs:range :Process .
+                 rdfs:range :Process ;
+                 owl:deprecated "true"^^xsd:boolean .
 
 
 ###  https://w3id.org/GDPRov#sharesData
 :sharesData rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf p-plan:hasInputVar ;
             owl:inverseOf :wasSharedBy ;
-            rdfs:domain :DataSharingStep, :CrossBorderDataTransfer ;
+            rdfs:domain [
+                a owl:Class ;
+                owl:unionOf (
+                  :DataSharingStep
+                  :CrossBorderDataTransfer
+                )
+            ] ;
             rdfs:range :Data ;
             rdfs:comment "Indicates sharing of Data through a DataStep" ;
             rdfs:label "sharesData" .
@@ -328,7 +385,13 @@ prov:invalidated rdf:type owl:ObjectProperty .
 
 ###  https://w3id.org/GDPRov#sharesDataWith
 :sharesDataWith rdf:type owl:ObjectProperty ;
-                rdfs:domain :CrossBorderDataTransfer, :DataSharingStep ;
+                rdfs:domain [
+                    a owl:Class ;
+                    owl:unionOf (
+                      :CrossBorderDataTransfer
+                      :DataSharingStep
+                    )
+                ] ;
                 rdfs:range prov:Agent ;
                 rdf:comment "Describe an intended data transferring"@en ;
                 rdfs:label "sharesDataWith" .
@@ -346,7 +409,7 @@ prov:invalidated rdf:type owl:ObjectProperty .
 
 ###  https://w3id.org/GDPRov#transferredDataToRegion
 :transferredDataToRegion rdf:type owl:ObjectProperty ;
-                         rdfs:domain :CrossBorderTransferActivity, :CrossBorderDataTransfer ;
+                         rdfs:domain :CrossBorderTransferActivity ;
                          rdfs:range :Region ;
                          rdf:comment "The Location of any resource."@en ;
                          rdfs:label "transferredDataToRegion"^^rdfs:Literal ;
@@ -356,6 +419,7 @@ prov:invalidated rdf:type owl:ObjectProperty .
 ###  https://w3id.org/GDPRov#transfersDataToRegion
 :transfersDataToRegion rdf:type owl:ObjectProperty ;
                        rdfs:domain :CrossBorderDataTransfer ;
+                       rdfs:range :Region ;
                        rdfs:label "transfersDataToRegion"^^rdfs:Literal .
 
 
@@ -382,6 +446,7 @@ prov:invalidated rdf:type owl:ObjectProperty .
           rdfs:subPropertyOf p-plan:hasInputVar ;
           rdfs:domain :DataStep ;
           rdfs:range :Data ;
+          owl:inverseOf :isUsedByStep ;
           rdfs:comment "links step with data used" ;
           rdfs:label "usesData" .
 
@@ -391,13 +456,23 @@ prov:invalidated rdf:type owl:ObjectProperty .
                         rdfs:subPropertyOf p-plan:hasInputVar ;
                         rdfs:domain :ConsentAcquisitionStep ;
                         rdfs:range :TermsAndConditions ;
+                        owl:inverseOf :isTermsAndConditionsForStep ;
                         rdfs:comment "Links a Consent Acquisition Step with the Terms and Conditions presented to the user when acquiring Consent" ;
                         rdfs:label "usesTermsAndConditions" .
 
 
 ###  https://w3id.org/GDPRov#wasSharedBy
 :wasSharedBy rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf p-plan:isInputVarOf .
+             rdfs:subPropertyOf p-plan:isInputVarOf ;
+             rdfs:domain :Data ;
+             rdfs:range [
+                a owl:Class ;
+                owl:unionOf (
+                  :DataSharingStep
+                  :CrossBorderDataTransfer
+                )
+            ] ;
+            rdfs:label "was Shared By" .
 
 
 ###  https://w3id.org/GDPRov#wasSharedWithThirdParty
@@ -405,7 +480,8 @@ prov:invalidated rdf:type owl:ObjectProperty .
                          rdfs:subPropertyOf prov:wasAttributedTo ;
                          rdfs:domain :DataEntity ;
                          rdfs:range :ThirdParty ;
-                         rdf:comment "An association indicating that the agent participated in the sharing activity"@en .
+                         rdf:comment "An association indicating that the agent participated in the sharing activity"@en ;
+                         rdfs:label "was Shared With Third Party" .
 
 
 ###  https://w3id.org/GDPRov#sharedDataEntity
@@ -413,68 +489,107 @@ prov:invalidated rdf:type owl:ObjectProperty .
                     rdfs:subPropertyOf prov:used ;
                     rdfs:domain :CrossBorderTransferActivity ;
                     rdfs:range :DataEntity ;
-                    rdf:comment "The beginning of transferring an entity."@en .
+                    rdf:comment "The beginning of transferring an entity."@en ;
+                    rdfs:label "shared Data Entity" .
 
 
 ###  https://w3id.org/GDPRov#usedDataEntity
 :usedDataEntity rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf prov:used ;
-                    rdfs:domain :DataActiity ;
+                    rdfs:domain :DataActivity ;
                     rdfs:range :DataEntity ;
                     rdf:comment "A DataEntity that was used by this DataActivity."@en ;
+                    rdfs:label "used Data Entity" ;
                     rdfs:isDefinedBy prov:used .
 
 
 ###  https://w3id.org/GDPRov#usesRecipeintLegalBasisURI
 :usesRecipeintLegalBasisURI rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf owl:topObjectProperty ;
-                    rdfs:domain :CrossBorderTransfer, :CrossBorderTransferActivity ;
+                    rdfs:domain [
+                        a owl:Class ;
+                        owl:unionOf (
+                          :CrossBorderDataTransfer
+                          :CrossBorderTransferActivity
+                        )
+                    ] ;
                     rdfs:range xsd:anyURI ;
-                    rdf:comment "The URI for the document that describes this legal basis can be found"@en .
+                    rdf:comment "The URI for the document that describes this legal basis can be found"@en ;
+                    rdfs:label "uses Recipeint Legal Basis URI" .
 
 
 ###  https://w3id.org/GDPRov#usesRecipientLegalBasis
 :usesRecipientLegalBasis rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf owl:topObjectProperty ;
-                    rdfs:domain :CrossBorderTransfer, :CrossBorderTransferActivity ;
-                    rdfs:range gdprtext:AdequacyDecision, gdprtext:AppropriateSafeguards, gdprtext:BindingCorporateRules, gdprtext:Derogation ;
-                    rdf:comment "Provides the legal basis for a given data step"@en .
+                    rdfs:domain [
+                        a owl:Class ;
+                        owl:unionOf (
+                          :CrossBorderDataTransfer
+                          :CrossBorderTransferActivity
+                        )
+                    ] ;
+                    rdfs:range [
+                        a owl:Class ;
+                        owl:unionOf (
+                          gdprtext:AdequacyDecision
+                          gdprtext:AppropriateSafeguards
+                          gdprtext:BindingCorporateRules
+                          gdprtext:Derogation
+                        )
+                    ] ;
+                    rdf:comment "Provides the legal basis for a given data step"@en ;
+                    rdfs:label "uses Recipient Legal Basis" .
 
 
 ###  https://w3id.org/GDPRov#hasDuration
 :hasDuration rdf:type owl:ObjectProperty ;
-                    rdfs:subClassOf owl:topObjectProperty ;
                     rdfs:subPropertyOf owl:topObjectProper  ;
-                    rdfs:domain :StorageCondition, :DataStep ;
+                    rdfs:domain :StorageCondition ;
                     rdfs:range :Duration ;
                     rdf:comment "Indicates information about duration"@en, "Duration of a temporal entity, expressed as a scaled value or nominal value"@en ;
+                    rdfs:label "has Duration" ;
                     rdfs:isDefinedBy dpv:hasDuration .
 
 
 ###  https://w3id.org/GDPRov#hasFrequency
 :hasFrequency rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf owl:topObjectProperty ;
-                    rdfs:domain :Process, :Step ;
+                    rdfs:domain [
+                        a owl:Class ;
+                        owl:unionOf (
+                          :Process
+                          :DataStep
+                        )
+                    ] ;
                     rdfs:range :Frequency ;
                     rdf:comment "Indicates the frequency with which something takes place"@en ;
+                    rdfs:label "has Frequency" ;
                     rdfs:isDefinedBy dpv:hasFrequency .
 
 
 ###  https://w3id.org/GDPRov#hasMaxDuration
 :hasMaxDuration rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf owl:topObjectProperty ;
-                    rdfs:domain :Process, :Step ;
+                    rdfs:domain [
+                        a owl:Class ;
+                        owl:unionOf (
+                          :DataStep
+                          :Process
+                        )
+                    ] ;
                     rdfs:range :Duration ;
                     rdf:comment "Indicates information about duration"@en ;
+                    rdfs:label "has Max Duration" ;
                     rdfs:isDefinedBy dpv:hasDuration .
 
 
 ###  https://w3id.org/GDPRov#hasStorageCondition
 :hasStorageCondition rdf:type owl:ObjectProperty ;
-                    rdfs:subClassOf owl:topObjectProperty ;
-                    rdfs:domain :HandleDataCollectionProcess, :Process ;
+                    rdfs:subPropertyOf owl:topObjectProperty ;
+                    rdfs:domain :Process ;
                     rdfs:range :StorageCondition ;
                     rdf:comment "Indicates the conditions required or followed regarding storage of data"@en ;
+                    rdfs:label "has Storage Condition" ;
                     rdfs:isDefinedBy dpv:hasStorageCondition .
 
 
@@ -483,7 +598,8 @@ prov:invalidated rdf:type owl:ObjectProperty .
                     rdfs:subPropertyOf p-plan:isInputVarOf ;
                     rdfs:domain :Data ;
                     rdfs:range :ThirdParty ;
-                    rdf:comment "An association indicating that the agent participated in the sharing activity"@en .
+                    rdf:comment "An association indicating that the agent participated in the sharing activity"@en ;
+                    rdfs:label "is Shared With Third Party" .
 
 
 #################################################################
@@ -1314,16 +1430,14 @@ The deletion is expressed as prov:invalidated over the dataset."@en ;
 :TermsAndConditions rdf:type owl:Class ;
                     rdfs:subClassOf p-plan:Variable ;
                     rdfs:comment "Terms and Conditions of usage as provided to the user in agreement of provided service"@en ;
-                    rdfs:label "TermsAndConditions"@en ;
-                    rdfs:seeAlso :TermsAndConditionsEntity .
+                    rdfs:label "TermsAndConditions"@en .
 
 
 ###  https://w3id.org/GDPRov#TermsAndConditionsEntity
 :TermsAndConditionsEntity rdf:type owl:Class ;
                           rdfs:subClassOf p-plan:Entity ;
                           rdfs:comment "Represents the Terms and Conditions entity." ;
-                          rdfs:label "Terms and Conditions Entity" ;
-                          rdfs:seeAlso :TermsAndConditions .
+                          rdfs:label "Terms and Conditions Entity" .
 
 
 ###  https://w3id.org/GDPRov#ThirdParty
@@ -1387,26 +1501,30 @@ The deletion is expressed as prov:invalidated over the dataset."@en ;
 ###  https://w3id.org/GDPRov#DataRectificationProactiveProcess
 :DataRectificationProactiveProcess rdf:type owl:Class ;
                     rdfs:subClassOf :DataRectificationProcess ;
-                    rdf:comment "A DataRectificationProactiveProcess describes the process of data rectification initiated by the controller, which is the correction of data already present within the system"@en .
+                    rdf:comment "A DataRectificationProactiveProcess describes the process of data rectification initiated by the controller, which is the correction of data already present within the system"@en ;
+                    rdfs:label "Data Rectification Proactive Process" .
 
 
 ###  https://w3id.org/GDPRov#DataRectificationReactiveProcess
 :DataRectificationReactiveProcess rdf:type owl:Class ;
                     rdfs:subClassOf :DataRectificationProcess ;
-                    rdf:comment "A ReactiveDataRectificationProcess describes the process of data rectification started by another agent then the controller, which is the correction of data already present within the system"@en .
+                    rdf:comment "A ReactiveDataRectificationProcess describes the process of data rectification started by another agent then the controller, which is the correction of data already present within the system"@en ;
+                    rdfs:label "Data Rectification Reactive Process" .
 
 
 ###  https://w3id.org/GDPRov#Duration
 :Duration rdf:type owl:Class ;
                     rdfs:subClassOf time:Duration ;
                     rdf:comment "The duration or temporal limitation"@en ;
-                    rdfs:isDefinedBy dpv:Duration, time:Duration .
+                    rdfs:isDefinedBy dpv:Duration, time:Duration ;
+                    rdfs:label "Duration" .
 
 
 ###  https://w3id.org/GDPRov#EndlessDuration
 :EndlessDuration rdf:type owl:Class ;
                     rdfs:subClassOf :Duration ;
                     rdf:comment "The duration that is (known or intended to be) open-ended or without an end"@en ;
+                    rdfs:label "Endless Duration" ;
                     rdfs:isDefinedBy dpv:EndlessDuration .
 
 
@@ -1414,6 +1532,7 @@ The deletion is expressed as prov:invalidated over the dataset."@en ;
 :FixedOccurencesDuration rdf:type owl:Class ;
                     rdfs:subClassOf :Duration ;
                     rdf:comment "The duration that takes place a fixed number of times, e.g. 3 times"@en ;
+                    rdfs:label "Fixed Occurences Duration" ;
                     rdfs:isDefinedBy dpv:FixedOccurencesDuration .
 
 
@@ -1421,6 +1540,7 @@ The deletion is expressed as prov:invalidated over the dataset."@en ;
 :Frequency rdf:type owl:Class ;
                     rdfs:subClassOf xsd:duration ;
                     rdf:comment "The frequency or information about periods and repetitions in terms of recurrence."@en ;
+                    rdfs:label "Frequency" ;
                     rdfs:isDefinedBy dpv:Frequency .
 
 
@@ -1428,20 +1548,23 @@ The deletion is expressed as prov:invalidated over the dataset."@en ;
 :HandleCrossBorderTransferingProcess rdf:type owl:Class ;
                     rdfs:subClassOf :Process ;
                     rdf:comment "Describe the process of handling a cross-border transferring"@en ;
-                    rdfs:isDefinedBy gdprtext:CrossBorderTransfer, gdprtext:ShareDataWithThirdParty .
+                    rdfs:isDefinedBy gdprtext:CrossBorderTransfer, gdprtext:ShareDataWithThirdParty ;
+                    rdfs:label "Handle Cross Border Transfering Process" .
 
 
 ###  https://w3id.org/GDPRov#MaxDuration
 :MaxDuration rdf:type owl:Class ;
                     rdfs:subClassOf xsd:duration ;
                     rdf:comment "The estimated maximum duration that activities related to this step can take without being seen as a delayed activity"@en ;
-                    rdfs:isDefinedBy dpv:Duration, time:Duration .
+                    rdfs:isDefinedBy dpv:Duration, time:Duration ;
+                    rdfs:label "Max Duration" .
 
 
 ###  https://w3id.org/GDPRov#Region
 :Region rdf:type owl:Class ;
                     rdfs:subClassOf prov:Location ;
                     rdf:comment "A location can be an identifiable geographic place (ISO 19112), but it can also be a non-geographic place such as a directory, row, or column. As such, there are numerous ways in which location can be expressed, such as by a coordinate, address, landmark, and so forth."@en ;
+                    rdfs:label "Region" ;
                     rdfs:isDefinedBy prov:Location .
 
 
@@ -1449,6 +1572,7 @@ The deletion is expressed as prov:invalidated over the dataset."@en ;
 :StorageCondition rdf:type owl:Class ;
                     rdfs:subClassOf owl:Class ;
                     rdf:comment "Conditions required or followed regarding storage of data"@en ;
+                    rdfs:label "Storage Condition" ;
                     rdfs:isDefinedBy dpv:StorageCondition, gdprtext:ContextOfDataCollection, gdprtext:StorageLimitation, gdprtext:InfoAboutStoragePeriod .
 
 
@@ -1456,21 +1580,24 @@ The deletion is expressed as prov:invalidated over the dataset."@en ;
 :TemporalDuration rdf:type owl:Class ;
                     rdfs:subClassOf :Duration ;
                     rdf:comment "The duration that has a fixed temporal duration, e.g. 6 months"@en ;
-                    rdfs:isDefinedBy dpv:TemporalDuration .
+                    rdfs:isDefinedBy dpv:TemporalDuration ;
+                    rdfs:label "Temporal Duration" .
 
 
 ###  https://w3id.org/GDPRov#UntilEventDuration
 :UntilEventDuration rdf:type owl:Class ;
                     rdfs:subClassOf :Duration ;
                     rdf:comment "The duration that takes place until a specific event occurs, e.g. data is no longer needed for original purpose"@en ;
-                    rdfs:isDefinedBy dpv:UntilEventDuration .
+                    rdfs:isDefinedBy dpv:UntilEventDuration ;
+                    rdfs:label "Until Event Duration" .
 
 
 ###  https://w3id.org/GDPRov#UntilTimeDuration
 :UntilTimeDuration rdf:type owl:Class ;
                     rdfs:subClassOf :Duration ;
                     rdf:comment "The duration that has a fixed end date, e.g. 2022-12-31"@en ;
-                    rdfs:isDefinedBy dpv:UntilTimeDuration .
+                    rdfs:isDefinedBy dpv:UntilTimeDuration ;
+                    rdfs:label "Until Time Duration" .
 
 
 ###  https://w3id.org/GDPRtEXT#LawfulBasisForProcessing
