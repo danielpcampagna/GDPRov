@@ -381,6 +381,127 @@ p-plan:isStepOfPlan rdf:type owl:ObjectProperty .
                          rdfs:range :ThirdParty .
 
 
+###  https://w3id.org/GDPRov#sharedDataEntity
+:sharedDataEntity rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf prov:used ;
+                    rdfs:domain :CrossBorderTransferActivity ;
+                    rdfs:range :DataEntity ;
+                    rdf:comment "The beginning of transferring an entity."@en .
+
+
+###  https://w3id.org/GDPRov#sharesData
+:sharesData rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf p-plan:hasInputVar ;
+                    rdfs:domain :CrossBorderDataTransfer, :DataSharingStep ;
+                    rdfs:range :Data ;
+                    rdf:comment "Describe an intended data transferring"@en ;
+                    rdfs:isDefinedBy :sharesDataWith .
+
+
+###  https://w3id.org/GDPRov#sharesDataWith
+:sharesDataWith rdf:type owl:ObjectProperty ;
+                    rdfs:domain :CrossBorderDataTransfer, :DataSharingStep ;
+                    rdfs:range prov:Agent ;
+                    rdf:comment "Describe an intended data transferring"@en ;
+                    rdfs:isDefinedBy :sharesDataWith .
+
+
+###  https://w3id.org/GDPRov#transferredDataToRegion
+:transferredDataToRegion rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf owl:topObjectProperty ;
+                    rdfs:domain :CrossBorderDataTransfer, :CrossBorderTransferActivity ;
+                    rdfs:range :Region ;
+                    rdf:comment "The Location of any resource."@en, "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile</a>." ;
+                    rdfs:isDefinedBy gdporv:transferredDataToRegion, prov:atLocation .
+
+
+###  https://w3id.org/GDPRov#usedDataEntity
+:usedDataEntity rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf prov:used ;
+                    rdfs:domain :DataActiity ;
+                    rdfs:range :DataEntity ;
+                    rdf:comment "A DataEntity that was used by this DataActivity."@en ;
+                    rdfs:isDefinedBy prov:used .
+
+
+###  https://w3id.org/GDPRov#usesRecipeintLegalBasisURI
+:usesRecipeintLegalBasisURI rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf owl:topObjectProperty ;
+                    rdfs:domain :CrossBorderTransfer, :CrossBorderTransferActivity ;
+                    rdfs:range xsd:anyURI ;
+                    rdf:comment "The URI for the document that describes this legal basis can be found"@en .
+
+
+###  https://w3id.org/GDPRov#usesRecipientLegalBasis
+:usesRecipientLegalBasis rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf owl:topObjectProperty ;
+                    rdfs:domain :CrossBorderTransfer, :CrossBorderTransferActivity ;
+                    rdfs:range gdprtext:AdequacyDecision, gdprtext:AppropriateSafeguards, gdprtext:BindingCorporateRules, gdprtext:Derogation ;
+                    rdf:comment "Provides the legal basis for a given data step"@en .
+
+
+###  https://w3id.org/GDPRov#wasSharedWithThirdParty
+:wasSharedWithThirdParty rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf prov:wasAttributedTo ;
+                    rdfs:domain :DataEntity ;
+                    rdfs:range :ThirdParty ;
+                    rdf:comment "An association indicating that the agent participated in the sharing activity"@en ;
+                    rdfs:isDefinedBy :wasSharedWithThirdParty .
+
+
+###  https://w3id.org/GDPRov#hasDuration
+:hasDuration rdf:type owl:ObjectProperty ;
+                    rdfs:subClassOf owl:topObjectProperty ;
+                    rdfs:subPropertyOf owl:topObjectProper  ;
+                    rdfs:domain :StorageCondition, :DataStep ;
+                    rdfs:range :Duration ;
+                    rdf:comment "Indicates information about duration"@en, "Duration of a temporal entity, expressed as a scaled value or nominal value"@en ;
+                    rdfs:isDefinedBy dpv:hasDuration .
+
+
+###  https://w3id.org/GDPRov#hasFrequency
+:hasFrequency rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf owl:topObjectProperty ;
+                    rdfs:domain :Process, :Step ;
+                    rdfs:range :Frequency ;
+                    rdf:comment "Indicates the frequency with which something takes place"@en ;
+                    rdfs:isDefinedBy dpv:hasFrequency .
+
+
+###  https://w3id.org/GDPRov#hasMaxDuration
+:hasMaxDuration rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf owl:topObjectProperty ;
+                    rdfs:domain :Process, :Step ;
+                    rdfs:range Duration ;
+                    rdf:comment "Indicates information about duration"@en ;
+                    rdfs:isDefinedBy dpv:hasDuration .
+
+
+###  https://w3id.org/GDPRov#hasStorageCondition
+:hasStorageCondition rdf:type owl:ObjectProperty ;
+                    rdfs:subClassOf owl:topObjectProperty ;
+                    rdfs:domain :HandleDataCollectionProcess, :Process ;
+                    rdfs:range :StorageCondition ;
+                    rdf:comment "Indicates the conditions required or followed regarding storage of data"@en ;
+                    rdfs:isDefinedBy dpv:hasStorageCondition .
+
+
+###  https://w3id.org/GDPRov#invalidatesData
+:invalidatesData rdf:type owl:ObjectProperty ;
+                    rdfs:domain :DataDeletionStep ;
+                    rdfs:range :Data ;
+                    rdf:comment .
+
+
+###  https://w3id.org/GDPRov#isSharedWithThirdParty
+:isSharedWithThirdParty rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf p-plan:isInputVarOf ;
+                    rdfs:domain :Data ;
+                    rdfs:range :ThirdParty ;
+                    rdf:comment "An association indicating that the agent participated in the sharing activity"@en ;
+                    rdfs:isDefinedBy :wasSharedWithThirdParty .
+
+
 #################################################################
 #    Classes
 #################################################################
@@ -641,8 +762,8 @@ prov:Agent rdf:type owl:Class .
 ###  https://w3id.org/GDPRov#DataAnonymisationStep
 :DataAnonymisationStep rdf:type owl:Class ;
                        rdfs:subClassOf :DataTransformationStep ;
-                       rdfs:comment """DataAnonymisationStep anonymises data by transforming it from one form to another along the anonymisation chain.
-Anonymisation can be represented as a spectrum going from raw user data to pseudo-anonymised data that can be de-anonymised by the same agent/organisation to pseudo-anonymous data that cannot be deanonymised internally, but may be done by external agents who have access to other data, and finally to completely anonymised data."""@en ;
+                       rdfs:comment "DataAnonymisationStep anonymises data by transforming it from one form to another along the anonymisation chain.
+Anonymisation can be represented as a spectrum going from raw user data to pseudo-anonymised data that can be de-anonymised by the same agent/organisation to pseudo-anonymous data that cannot be deanonymised internally, but may be done by external agents who have access to other data, and finally to completely anonymised data."@en ;
                        rdfs:label "Data Anonymisation Step"@en ;
                        rdfs:seeAlso :AnonymisationActivity .
 
@@ -739,8 +860,8 @@ Anonymisation can be represented as a spectrum going from raw user data to pseud
 ###  https://w3id.org/GDPRov#DataDeletionStep
 :DataDeletionStep rdf:type owl:Class ;
                   rdfs:subClassOf :DataStep ;
-                  rdfs:comment """DataDeletionStep deletes data from within the system;
-The deletion is expressed as prov:invalidated over the dataset."""@en ;
+                  rdfs:comment "DataDeletionStep deletes data from within the system;
+The deletion is expressed as prov:invalidated over the dataset."@en ;
                   rdfs:isDefinedBy gdprtext:EraseData ;
                   rdfs:label "Data Deletion Step"@en ;
                   rdfs:seeAlso :DataDeletionActivity .
@@ -1264,8 +1385,148 @@ The deletion is expressed as prov:invalidated over the dataset."""@en ;
                          rdfs:seeAlso :ConsentWithdrawalStep .
 
 
+###  https://w3id.org/GDPRov#DataErasureProcess
+:DataErasureProcess rdf:type owl:Class ;
+                    rdfs:subClassOf :Process ;
+                    rdf:comment "A DataErasureProcess is responsible for handling the data erasure of a data subject."@en ;
+                    rdfs:isDefinedBy :DataErasureProcess, gdprtext:DataNoLongerNeededForOriginalPurpose, gdprtext:EraseWhenDataIsNoLongerNeededForOriginalPurpose, gdprtext:ReturnOrDestroyPersonalDataAtEndTerm .
+
+
+###  https://w3id.org/GDPRov#DataRectificationProactiveProcess
+:DataRectificationProactiveProcess rdf:type owl:Class ;
+                    rdfs:subClassOf :DataRectificationProcess ;
+                    rdf:comment "A DataRectificationProactiveProcess describes the process of data rectification initiated by the controller, which is the correction of data already present within the system"@en .
+
+
+###  https://w3id.org/GDPRov#DataRectificationReactiveProcess
+:DataRectificationReactiveProcess rdf:type owl:Class ;
+                    rdfs:subClassOf :DataRectificationProcess ;
+                    rdf:comment "A ReactiveDataRectificationProcess describes the process of data rectification started by another agent then the controller, which is the correction of data already present within the system"@en .
+
+
+###  https://w3id.org/GDPRov#Duration
+:Duration rdf:type owl:Class ;
+                    rdfs:subClassOf time:Duration ;
+                    rdf:comment "The duration or temporal limitation"@en ;
+                    rdfs:isDefinedBy dpv:Duration, time:Duration .
+
+
+###  https://w3id.org/GDPRov#EndlessDuration
+:EndlessDuration rdf:type owl:Class ;
+                    rdfs:subClassOf :Duration ;
+                    rdf:comment "The duration that is (known or intended to be) open-ended or without an end"@en ;
+                    rdfs:isDefinedBy dpv:EndlessDuration .
+
+
+###  https://w3id.org/GDPRov#FixedOccurencesDuration
+:FixedOccurencesDuration rdf:type owl:Class ;
+                    rdfs:subClassOf :Duration ;
+                    rdf:comment "The duration that takes place a fixed number of times, e.g. 3 times"@en ;
+                    rdfs:isDefinedBy dpv:FixedOccurencesDuration .
+
+
+###  https://w3id.org/GDPRov#Frequency
+:Frequency rdf:type owl:Class ;
+                    rdfs:subClassOf xsd:duration ;
+                    rdf:comment "The frequency or information about periods and repetitions in terms of recurrence."@en ;
+                    rdfs:isDefinedBy dpv:Frequency .
+
+
+###  https://w3id.org/GDPRov#HandleCrossBorderTransferingProcess
+:HandleCrossBorderTransferingProcess rdf:type owl:Class ;
+                    rdfs:subClassOf :Process ;
+                    rdf:comment "Describe the process of handling a cross-border transferring"@en ;
+                    rdfs:isDefinedBy gdprtext:CrossBorderTransfer, gdprtext:ShareDataWithThirdParty .
+
+
+###  https://w3id.org/GDPRov#MaxDuration
+:MaxDuration rdf:type owl:Class ;
+                    rdfs:subClassOf xsd:duration ;
+                    rdf:comment "The estimated maximum duration that activities related to this step can take without being seen as a delayed activity"@en ;
+                    rdfs:isDefinedBy dpv:Duration, time:Duration .
+
+
+###  https://w3id.org/GDPRov#Region
+:Region rdf:type owl:Class ;
+                    rdfs:subClassOf prov:Location ;
+                    rdf:comment "A location can be an identifiable geographic place (ISO 19112), but it can also be a non-geographic place such as a directory, row, or column. As such, there are numerous ways in which location can be expressed, such as by a coordinate, address, landmark, and so forth."@en ;
+                    rdfs:isDefinedBy prov:Location .
+
+
+###  https://w3id.org/GDPRov#StorageCondition
+:StorageCondition rdf:type owl:Class ;
+                    rdfs:subClassOf owl:Class ;
+                    rdf:comment "Conditions required or followed regarding storage of data"@en ;
+                    rdfs:isDefinedBy dpv:StorageCondition, gdprtext:ContextOfDataCollection, gdprtext:StorageLimitation, gdprtext:InfoAboutStoragePeriod .
+
+
+###  https://w3id.org/GDPRov#TemporalDuration
+:TemporalDuration rdf:type owl:Class ;
+                    rdfs:subClassOf :Duration ;
+                    rdf:comment "The duration that has a fixed temporal duration, e.g. 6 months"@en ;
+                    rdfs:isDefinedBy dpv:TemporalDuration .
+
+
+###  https://w3id.org/GDPRov#UntilEventDuration
+:UntilEventDuration rdf:type owl:Class ;
+                    rdfs:subClassOf :Duration ;
+                    rdf:comment "The duration that takes place until a specific event occurs, e.g. data is no longer needed for original purpose"@en ;
+                    rdfs:isDefinedBy dpv:UntilEventDuration .
+
+
+###  https://w3id.org/GDPRov#UntilTimeDuration
+:UntilTimeDuration rdf:type owl:Class ;
+                    rdfs:subClassOf :Duration ;
+                    rdf:comment "The duration that has a fixed end date, e.g. 2022-12-31"@en ;
+                    rdfs:isDefinedBy dpv:UntilTimeDuration .
+
+
 ###  https://w3id.org/GDPRtEXT#LawfulBasisForProcessing
 gdprtext:LawfulBasisForProcessing rdf:type owl:Class .
+
+
+###  https://w3id.org/GDPRtEXT#AdequacyDecision
+gdprtext:AdequacyDecision rdf:type owl:Class .
+
+
+###  https://w3id.org/GDPRtEXT#AppropriateSafeguards
+gdprtext:AppropriateSafeguards rdf:type owl:Class .
+
+
+###  https://w3id.org/GDPRtEXT#BindingCorporateRules
+gdprtext:BindingCorporateRules rdf:type owl:Class .
+
+
+###  https://w3id.org/GDPRtEXT#Derogation
+gdprtext:Derogation rdf:type owl:Class .
+
+
+###  https://w3id.org/GDPRtEXT#ExplicitConsentToTransfer
+gdprtext:ExplicitConsentToTransfer rdf:type owl:Class .
+
+
+###  https://w3id.org/GDPRtEXT#LegalBasisForInternationalDataTransfer
+gdprtext:LegalBasisForInternationalDataTransfer rdf:type owl:Class .
+
+
+###  https://w3id.org/GDPRtEXT#LegalClaimsToTransfer
+gdprtext:LegalClaimsToTransfer rdf:type owl:Class .
+
+
+###  https://w3id.org/GDPRtEXT#OpenConsultationToTransfer
+gdprtext:OpenConsultationToTransfer rdf:type owl:Class .
+
+
+###  https://w3id.org/GDPRtEXT#PerformeContractToTransfer
+gdprtext:PerformeContractToTransfer rdf:type owl:Class .
+
+
+###  https://w3id.org/GDPRtEXT#PublicInterestToTransfer
+gdprtext:PublicInterestToTransfer rdf:type owl:Class .
+
+
+###  https://w3id.org/GDPRtEXT#VitalInterestToTransfer
+gdprtext:VitalInterestToTransfer rdf:type owl:Class .
 
 
 #################################################################
