@@ -213,7 +213,7 @@ p-plan:isStepOfPlan rdf:type owl:ObjectProperty .
 
 ###  https://w3id.org/GDPRov#invalidatesData
 :invalidatesData rdf:type owl:ObjectProperty ;
-                 rdfs:domain :DataDeletionActivity ;
+                 rdfs:domain :DataDeletionActivity, :DataDeletionStep ;
                  rdfs:range :Data .
 
 
@@ -298,7 +298,7 @@ p-plan:isStepOfPlan rdf:type owl:ObjectProperty .
 :sharesData rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf p-plan:hasInputVar ;
             owl:inverseOf :wasSharedBy ;
-            rdfs:domain :DataSharingStep ;
+            rdfs:domain :DataSharingStep, :CrossBorderDataTransfer ;
             rdfs:range :Data ;
             rdfs:comment "Indicates sharing of Data through a DataStep" ;
             rdfs:label "sharesData" .
@@ -306,8 +306,9 @@ p-plan:isStepOfPlan rdf:type owl:ObjectProperty .
 
 ###  https://w3id.org/GDPRov#sharesDataWith
 :sharesDataWith rdf:type owl:ObjectProperty ;
-                rdfs:domain :DataSharingStep ;
+                rdfs:domain :CrossBorderDataTransfer, :DataSharingStep ;
                 rdfs:range prov:Agent ;
+                rdf:comment "Describe an intended data transferring"@en ;
                 rdfs:label "sharesDataWith" .
 
 
@@ -323,8 +324,11 @@ p-plan:isStepOfPlan rdf:type owl:ObjectProperty .
 
 ###  https://w3id.org/GDPRov#transferredDataToRegion
 :transferredDataToRegion rdf:type owl:ObjectProperty ;
-                         rdfs:domain :CrossBorderTransferActivity ;
-                         rdfs:label "transferredDataToRegion"^^rdfs:Literal .
+                         rdfs:domain :CrossBorderTransferActivity, :CrossBorderDataTransfer ;
+                         rdfs:range :Region ;
+                         rdf:comment "The Location of any resource."@en ;
+                         rdfs:label "transferredDataToRegion"^^rdfs:Literal ;
+                         rdfs:isDefinedBy prov:atLocation .
 
 
 ###  https://w3id.org/GDPRov#transfersDataToRegion
@@ -376,9 +380,10 @@ p-plan:isStepOfPlan rdf:type owl:ObjectProperty .
 
 ###  https://w3id.org/GDPRov#wasSharedWithThirdParty
 :wasSharedWithThirdParty rdf:type owl:ObjectProperty ;
-                         rdfs:subPropertyOf p-plan:isInputVarOf ;
-                         rdfs:domain :Data ;
-                         rdfs:range :ThirdParty .
+                         rdfs:subPropertyOf prov:wasAttributedTo ;
+                         rdfs:domain :DataEntity ;
+                         rdfs:range :ThirdParty ;
+                         rdf:comment "An association indicating that the agent participated in the sharing activity"@en .
 
 
 ###  https://w3id.org/GDPRov#sharedDataEntity
@@ -387,32 +392,6 @@ p-plan:isStepOfPlan rdf:type owl:ObjectProperty .
                     rdfs:domain :CrossBorderTransferActivity ;
                     rdfs:range :DataEntity ;
                     rdf:comment "The beginning of transferring an entity."@en .
-
-
-###  https://w3id.org/GDPRov#sharesData
-:sharesData rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf p-plan:hasInputVar ;
-                    rdfs:domain :CrossBorderDataTransfer, :DataSharingStep ;
-                    rdfs:range :Data ;
-                    rdf:comment "Describe an intended data transferring"@en ;
-                    rdfs:isDefinedBy :sharesDataWith .
-
-
-###  https://w3id.org/GDPRov#sharesDataWith
-:sharesDataWith rdf:type owl:ObjectProperty ;
-                    rdfs:domain :CrossBorderDataTransfer, :DataSharingStep ;
-                    rdfs:range prov:Agent ;
-                    rdf:comment "Describe an intended data transferring"@en ;
-                    rdfs:isDefinedBy :sharesDataWith .
-
-
-###  https://w3id.org/GDPRov#transferredDataToRegion
-:transferredDataToRegion rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf owl:topObjectProperty ;
-                    rdfs:domain :CrossBorderDataTransfer, :CrossBorderTransferActivity ;
-                    rdfs:range :Region ;
-                    rdf:comment "The Location of any resource."@en, "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile</a>." ;
-                    rdfs:isDefinedBy gdporv:transferredDataToRegion, prov:atLocation .
 
 
 ###  https://w3id.org/GDPRov#usedDataEntity
@@ -438,15 +417,6 @@ p-plan:isStepOfPlan rdf:type owl:ObjectProperty .
                     rdfs:domain :CrossBorderTransfer, :CrossBorderTransferActivity ;
                     rdfs:range gdprtext:AdequacyDecision, gdprtext:AppropriateSafeguards, gdprtext:BindingCorporateRules, gdprtext:Derogation ;
                     rdf:comment "Provides the legal basis for a given data step"@en .
-
-
-###  https://w3id.org/GDPRov#wasSharedWithThirdParty
-:wasSharedWithThirdParty rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf prov:wasAttributedTo ;
-                    rdfs:domain :DataEntity ;
-                    rdfs:range :ThirdParty ;
-                    rdf:comment "An association indicating that the agent participated in the sharing activity"@en ;
-                    rdfs:isDefinedBy :wasSharedWithThirdParty .
 
 
 ###  https://w3id.org/GDPRov#hasDuration
@@ -486,20 +456,12 @@ p-plan:isStepOfPlan rdf:type owl:ObjectProperty .
                     rdfs:isDefinedBy dpv:hasStorageCondition .
 
 
-###  https://w3id.org/GDPRov#invalidatesData
-:invalidatesData rdf:type owl:ObjectProperty ;
-                    rdfs:domain :DataDeletionStep ;
-                    rdfs:range :Data ;
-                    rdf:comment .
-
-
 ###  https://w3id.org/GDPRov#isSharedWithThirdParty
 :isSharedWithThirdParty rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf p-plan:isInputVarOf ;
                     rdfs:domain :Data ;
                     rdfs:range :ThirdParty ;
-                    rdf:comment "An association indicating that the agent participated in the sharing activity"@en ;
-                    rdfs:isDefinedBy :wasSharedWithThirdParty .
+                    rdf:comment "An association indicating that the agent participated in the sharing activity"@en .
 
 
 #################################################################
