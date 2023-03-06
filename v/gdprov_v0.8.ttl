@@ -14,22 +14,23 @@
 @base <https://w3id.org/GDPRov> .
 
 <https://w3id.org/GDPRov> rdf:type owl:Ontology ;
-                           owl:versionIRI <https://openscience.adaptcentre.ie/ontologies/gdprov/v/gdprov_v0.7.owl> ;
+                           owl:versionIRI <https://openscience.adaptcentre.ie/ontologies/gdprov/v/gdprov_v0.8.owl> ;
                            owl:imports p-plan: ,
                                        <http://www.w3.org/ns/prov-o-20130430> ;
                            terms:creator "http://purl.org/adaptcentre/people/harshvardhan_pandit"^^xsd:anyURI ;
+                           terms:contributor "Daniel Prett Campagna" ;
                            vann:preferredNamespacePrefix "gdprov" ;
                            vann:preferredNamespaceUri "https://w3id.org/GDPRov#"^^xsd:anyURI ;
                            terms:title "The GDPR Provenance ontology" ;
                            terms:creator "http://purl.org/adaptcentre/people/dave_lewis"^^xsd:anyURI ;
                            terms:created "2017-08-01"^^xsd:date ;
-                           terms:modified "2018-04-06" ;
-                           owl:versionInfo "0.7"^^xsd:string ;
+                           terms:modified "2023-05-06" ;
+                           owl:versionInfo "0.8"^^xsd:string ;
                            terms:description "GDPRov is an OWL2 ontology to express provenance metadata of consent and data lifecycles towards documenting compliance for GDPR." ;
                            terms:abstract "The General Data Protection Regulation (GDPR) is an European law governing the use of consent and personal data. Some of its obligations involve concepts related to the lifecycles of consent and personal data. Such obligations are concerned with how the collection, use, processing, sharing, and storing of consent and personal data takes place and provides the motivation for a form of documentation that can demonstrate the required information towards compliance. GDPRov is an OWL2 ontology for representing this information as provenance metadata using terms relevant to the GDPR. It extends PROV-O and P-Plan to represent the lifecyles as an abstract model of how things should happen or will happen (future) as well as instance of what has happened (past). The ontology is being developed as part of contributions towards PhD research by its primary author." ;
                            terms:license "https://creativecommons.org/licenses/by/4.0/" ;
                            rdfs:comment "GDPRov is an ontology for expressing provenance metadata in the context of the General Data Protection Regulation (GDPR) and its compliance. It extends PROV-O and P-Plan. PROV-O is the ontology based on the PROV model, a W3C recommendation, while P-Plan is an extension of PROV-O. PROV is used to define terms or 'instances' of what has happened in the past, while P-Plan is used to define the abstract model or 'Plan' of things to happen. GDPRov uses P-Plan to create a template/model/plan as an abstract or model representation of a system which is then recorded using PROV-O instances to show something has happened. The aim of the ontology is to enable representation of consent and personal data lifecycles using terms relevant to GDPR and to facilitate expression of this information towards documentation related to compliance." ;
-                           owl:versionIRI "https://openscience.adaptcentre.ie/ontologies/gdprov/v/gdprov.0.7.owl"^^xsd:string .
+                           owl:versionIRI "https://openscience.adaptcentre.ie/ontologies/gdprov/v/gdprov.0.8.owl"^^xsd:string .
 
 #################################################################
 #    Annotation properties
