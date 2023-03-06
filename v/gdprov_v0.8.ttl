@@ -99,6 +99,26 @@ p-plan:isOutputVarOf rdf:type owl:ObjectProperty .
 p-plan:isStepOfPlan rdf:type owl:ObjectProperty .
 
 
+###  http://purl.org/net/p-plan#isStepOfPlan
+p-plan:isStepOfPlan rdf:type owl:ObjectProperty .
+
+
+###  http://purl.org/net/p-plan#atLocation
+prov:atLocation rdf:type owl:ObjectProperty .
+
+
+###  http://purl.org/net/p-plan#wasAttributedTo
+prov:wasAttributedTo rdf:type owl:ObjectProperty .
+
+
+###  http://purl.org/net/p-plan#used
+prov:used rdf:type owl:ObjectProperty .
+
+
+###  http://purl.org/net/p-plan#invalidated
+prov:invalidated rdf:type owl:ObjectProperty .
+
+
 ###  https://w3id.org/GDPRov#anonymityLevel
 :anonymityLevel rdf:type owl:ObjectProperty ;
                 rdfs:domain :DataEntity ;
@@ -492,6 +512,14 @@ p-plan:Variable rdf:type owl:Class .
 
 ###  http://www.w3.org/ns/prov#Agent
 prov:Agent rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/prov#Location
+prov:Location rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/prov#Duration
+time:Duration rdf:type owl:Class .
 
 
 ###  https://w3id.org/GDPRov#AcquireConsentActivity
