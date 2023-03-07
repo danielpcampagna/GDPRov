@@ -394,7 +394,7 @@ prov:invalidated rdf:type owl:ObjectProperty .
                     )
                 ] ;
                 rdfs:range prov:Agent ;
-                rdf:comment "Describe an intended data transferring"@en ;
+                rdfs:comment "Describe an intended data transferring"@en ;
                 rdfs:label "sharesDataWith" .
 
 
@@ -412,7 +412,7 @@ prov:invalidated rdf:type owl:ObjectProperty .
 :transferredDataToRegion rdf:type owl:ObjectProperty ;
                          rdfs:domain :CrossBorderTransferActivity ;
                          rdfs:range :Region ;
-                         rdf:comment "The Location of any resource."@en ;
+                         rdfs:comment "The Location of any resource."@en ;
                          rdfs:label "transferredDataToRegion"^^rdfs:Literal ;
                          rdfs:isDefinedBy prov:atLocation .
 
@@ -481,7 +481,7 @@ prov:invalidated rdf:type owl:ObjectProperty .
                          rdfs:subPropertyOf prov:wasAttributedTo ;
                          rdfs:domain :DataEntity ;
                          rdfs:range :ThirdParty ;
-                         rdf:comment "An association indicating that the agent participated in the sharing activity"@en ;
+                         rdfs:comment "An association indicating that the agent participated in the sharing activity"@en ;
                          rdfs:label "was Shared With Third Party" .
 
 
@@ -490,7 +490,7 @@ prov:invalidated rdf:type owl:ObjectProperty .
                     rdfs:subPropertyOf prov:used ;
                     rdfs:domain :CrossBorderTransferActivity ;
                     rdfs:range :DataEntity ;
-                    rdf:comment "The beginning of transferring an entity."@en ;
+                    rdfs:comment "The beginning of transferring an entity."@en ;
                     rdfs:label "shared Data Entity" .
 
 
@@ -499,7 +499,7 @@ prov:invalidated rdf:type owl:ObjectProperty .
                     rdfs:subPropertyOf prov:used ;
                     rdfs:domain :DataActivity ;
                     rdfs:range :DataEntity ;
-                    rdf:comment "A DataEntity that was used by this DataActivity."@en ;
+                    rdfs:comment "A DataEntity that was used by this DataActivity."@en ;
                     rdfs:label "used Data Entity" ;
                     rdfs:isDefinedBy prov:used .
 
@@ -515,7 +515,7 @@ prov:invalidated rdf:type owl:ObjectProperty .
                         )
                     ] ;
                     rdfs:range xsd:anyURI ;
-                    rdf:comment "The URI for the document that describes this legal basis can be found"@en ;
+                    rdfs:comment "The URI for the document that describes this legal basis can be found"@en ;
                     rdfs:label "uses Recipeint Legal Basis URI" .
 
 
@@ -538,7 +538,7 @@ prov:invalidated rdf:type owl:ObjectProperty .
                           gdprtext:Derogation
                         )
                     ] ;
-                    rdf:comment "Provides the legal basis for a given data step"@en ;
+                    rdfs:comment "Provides the legal basis for a given data step"@en ;
                     rdfs:label "uses Recipient Legal Basis" .
 
 
@@ -547,7 +547,7 @@ prov:invalidated rdf:type owl:ObjectProperty .
                     rdfs:subPropertyOf owl:topObjectProper  ;
                     rdfs:domain :StorageCondition ;
                     rdfs:range :Duration ;
-                    rdf:comment "Indicates information about duration"@en, "Duration of a temporal entity, expressed as a scaled value or nominal value"@en ;
+                    rdfs:comment "Indicates information about duration"@en, "Duration of a temporal entity, expressed as a scaled value or nominal value"@en ;
                     rdfs:label "has Duration" ;
                     rdfs:isDefinedBy dpv:hasDuration .
 
@@ -563,7 +563,7 @@ prov:invalidated rdf:type owl:ObjectProperty .
                         )
                     ] ;
                     rdfs:range :Frequency ;
-                    rdf:comment "Indicates the frequency with which something takes place"@en ;
+                    rdfs:comment "Indicates the frequency with which something takes place"@en ;
                     rdfs:label "has Frequency" ;
                     rdfs:isDefinedBy dpv:hasFrequency .
 
@@ -579,7 +579,7 @@ prov:invalidated rdf:type owl:ObjectProperty .
                         )
                     ] ;
                     rdfs:range :Duration ;
-                    rdf:comment "Indicates information about duration"@en ;
+                    rdfs:comment "Indicates information about duration"@en ;
                     rdfs:label "has Max Duration" ;
                     rdfs:isDefinedBy dpv:hasDuration .
 
@@ -589,7 +589,7 @@ prov:invalidated rdf:type owl:ObjectProperty .
                     rdfs:subPropertyOf owl:topObjectProperty ;
                     rdfs:domain :Process ;
                     rdfs:range :StorageCondition ;
-                    rdf:comment "Indicates the conditions required or followed regarding storage of data"@en ;
+                    rdfs:comment "Indicates the conditions required or followed regarding storage of data"@en ;
                     rdfs:label "has Storage Condition" ;
                     rdfs:isDefinedBy dpv:hasStorageCondition .
 
@@ -599,7 +599,7 @@ prov:invalidated rdf:type owl:ObjectProperty .
                     rdfs:subPropertyOf p-plan:isInputVarOf ;
                     rdfs:domain :Data ;
                     rdfs:range :ThirdParty ;
-                    rdf:comment "An association indicating that the agent participated in the sharing activity"@en ;
+                    rdfs:comment "An association indicating that the agent participated in the sharing activity"@en ;
                     rdfs:label "is Shared With Third Party" .
 
 
@@ -608,7 +608,7 @@ prov:invalidated rdf:type owl:ObjectProperty .
                     rdfs:subPropertyOf owl:topObjectProperty ;
                     rdfs:domain :DataStep ;
                     rdfs:range xsd:boolean ;
-                    rdf:comment "Describe whether the corresponding DataActivity to this DataStep must occur. The lack of execution of an activity that the step is necessary to correspond to a lack of compliance."@en ;
+                    rdfs:comment "Describe whether the corresponding DataActivity to this DataStep must occur. The lack of execution of an activity that the step is necessary to correspond to a lack of compliance."@en ;
                     rdfs:label "is Necessary" .
 
 
@@ -1504,28 +1504,28 @@ The deletion is expressed as prov:invalidated over the dataset."@en ;
 ###  https://w3id.org/GDPRov#DataErasureProcess
 :DataErasureProcess rdf:type owl:Class ;
                     rdfs:subClassOf :Process ;
-                    rdf:comment "A DataErasureProcess is responsible for handling the data erasure of a data subject."@en ;
+                    rdfs:comment "A DataErasureProcess is responsible for handling the data erasure of a data subject."@en ;
                     rdfs:isDefinedBy :DataErasureProcess, gdprtext:DataNoLongerNeededForOriginalPurpose, gdprtext:EraseWhenDataIsNoLongerNeededForOriginalPurpose, gdprtext:ReturnOrDestroyPersonalDataAtEndTerm .
 
 
 ###  https://w3id.org/GDPRov#DataRectificationProactiveProcess
 :DataRectificationProactiveProcess rdf:type owl:Class ;
                     rdfs:subClassOf :DataRectificationProcess ;
-                    rdf:comment "A DataRectificationProactiveProcess describes the process of data rectification initiated by the controller, which is the correction of data already present within the system"@en ;
+                    rdfs:comment "A DataRectificationProactiveProcess describes the process of data rectification initiated by the controller, which is the correction of data already present within the system"@en ;
                     rdfs:label "Data Rectification Proactive Process" .
 
 
 ###  https://w3id.org/GDPRov#DataRectificationReactiveProcess
 :DataRectificationReactiveProcess rdf:type owl:Class ;
                     rdfs:subClassOf :DataRectificationProcess ;
-                    rdf:comment "A ReactiveDataRectificationProcess describes the process of data rectification started by another agent then the controller, which is the correction of data already present within the system"@en ;
+                    rdfs:comment "A ReactiveDataRectificationProcess describes the process of data rectification started by another agent then the controller, which is the correction of data already present within the system"@en ;
                     rdfs:label "Data Rectification Reactive Process" .
 
 
 ###  https://w3id.org/GDPRov#Duration
 :Duration rdf:type owl:Class ;
                     rdfs:subClassOf time:Duration ;
-                    rdf:comment "The duration or temporal limitation"@en ;
+                    rdfs:comment "The duration or temporal limitation"@en ;
                     rdfs:isDefinedBy dpv:Duration, time:Duration ;
                     rdfs:label "Duration" .
 
@@ -1533,7 +1533,7 @@ The deletion is expressed as prov:invalidated over the dataset."@en ;
 ###  https://w3id.org/GDPRov#EndlessDuration
 :EndlessDuration rdf:type owl:Class ;
                     rdfs:subClassOf :Duration ;
-                    rdf:comment "The duration that is (known or intended to be) open-ended or without an end"@en ;
+                    rdfs:comment "The duration that is (known or intended to be) open-ended or without an end"@en ;
                     rdfs:label "Endless Duration" ;
                     rdfs:isDefinedBy dpv:EndlessDuration .
 
@@ -1541,7 +1541,7 @@ The deletion is expressed as prov:invalidated over the dataset."@en ;
 ###  https://w3id.org/GDPRov#FixedOccurencesDuration
 :FixedOccurencesDuration rdf:type owl:Class ;
                     rdfs:subClassOf :Duration ;
-                    rdf:comment "The duration that takes place a fixed number of times, e.g. 3 times"@en ;
+                    rdfs:comment "The duration that takes place a fixed number of times, e.g. 3 times"@en ;
                     rdfs:label "Fixed Occurences Duration" ;
                     rdfs:isDefinedBy dpv:FixedOccurencesDuration .
 
@@ -1549,7 +1549,7 @@ The deletion is expressed as prov:invalidated over the dataset."@en ;
 ###  https://w3id.org/GDPRov#Frequency
 :Frequency rdf:type owl:Class ;
                     rdfs:subClassOf xsd:duration ;
-                    rdf:comment "The frequency or information about periods and repetitions in terms of recurrence."@en ;
+                    rdfs:comment "The frequency or information about periods and repetitions in terms of recurrence."@en ;
                     rdfs:label "Frequency" ;
                     rdfs:isDefinedBy dpv:Frequency .
 
@@ -1557,7 +1557,7 @@ The deletion is expressed as prov:invalidated over the dataset."@en ;
 ###  https://w3id.org/GDPRov#HandleCrossBorderTransferingProcess
 :HandleCrossBorderTransferingProcess rdf:type owl:Class ;
                     rdfs:subClassOf :Process ;
-                    rdf:comment "Describe the process of handling a cross-border transferring"@en ;
+                    rdfs:comment "Describe the process of handling a cross-border transferring"@en ;
                     rdfs:isDefinedBy gdprtext:CrossBorderTransfer, gdprtext:ShareDataWithThirdParty ;
                     rdfs:label "Handle Cross Border Transfering Process" .
 
@@ -1565,7 +1565,7 @@ The deletion is expressed as prov:invalidated over the dataset."@en ;
 ###  https://w3id.org/GDPRov#MaxDuration
 :MaxDuration rdf:type owl:Class ;
                     rdfs:subClassOf xsd:duration ;
-                    rdf:comment "The estimated maximum duration that activities related to this step can take without being seen as a delayed activity"@en ;
+                    rdfs:comment "The estimated maximum duration that activities related to this step can take without being seen as a delayed activity"@en ;
                     rdfs:isDefinedBy dpv:Duration, time:Duration ;
                     rdfs:label "Max Duration" .
 
@@ -1573,7 +1573,7 @@ The deletion is expressed as prov:invalidated over the dataset."@en ;
 ###  https://w3id.org/GDPRov#Region
 :Region rdf:type owl:Class ;
                     rdfs:subClassOf prov:Location ;
-                    rdf:comment "A location can be an identifiable geographic place (ISO 19112), but it can also be a non-geographic place such as a directory, row, or column. As such, there are numerous ways in which location can be expressed, such as by a coordinate, address, landmark, and so forth."@en ;
+                    rdfs:comment "A location can be an identifiable geographic place (ISO 19112), but it can also be a non-geographic place such as a directory, row, or column. As such, there are numerous ways in which location can be expressed, such as by a coordinate, address, landmark, and so forth."@en ;
                     rdfs:label "Region" ;
                     rdfs:isDefinedBy prov:Location .
 
@@ -1581,7 +1581,7 @@ The deletion is expressed as prov:invalidated over the dataset."@en ;
 ###  https://w3id.org/GDPRov#StorageCondition
 :StorageCondition rdf:type owl:Class ;
                     rdfs:subClassOf owl:Class ;
-                    rdf:comment "Conditions required or followed regarding storage of data"@en ;
+                    rdfs:comment "Conditions required or followed regarding storage of data"@en ;
                     rdfs:label "Storage Condition" ;
                     rdfs:isDefinedBy dpv:StorageCondition, gdprtext:ContextOfDataCollection, gdprtext:StorageLimitation, gdprtext:InfoAboutStoragePeriod .
 
@@ -1589,7 +1589,7 @@ The deletion is expressed as prov:invalidated over the dataset."@en ;
 ###  https://w3id.org/GDPRov#TemporalDuration
 :TemporalDuration rdf:type owl:Class ;
                     rdfs:subClassOf :Duration ;
-                    rdf:comment "The duration that has a fixed temporal duration, e.g. 6 months"@en ;
+                    rdfs:comment "The duration that has a fixed temporal duration, e.g. 6 months"@en ;
                     rdfs:isDefinedBy dpv:TemporalDuration ;
                     rdfs:label "Temporal Duration" .
 
@@ -1597,7 +1597,7 @@ The deletion is expressed as prov:invalidated over the dataset."@en ;
 ###  https://w3id.org/GDPRov#UntilEventDuration
 :UntilEventDuration rdf:type owl:Class ;
                     rdfs:subClassOf :Duration ;
-                    rdf:comment "The duration that takes place until a specific event occurs, e.g. data is no longer needed for original purpose"@en ;
+                    rdfs:comment "The duration that takes place until a specific event occurs, e.g. data is no longer needed for original purpose"@en ;
                     rdfs:isDefinedBy dpv:UntilEventDuration ;
                     rdfs:label "Until Event Duration" .
 
@@ -1605,7 +1605,7 @@ The deletion is expressed as prov:invalidated over the dataset."@en ;
 ###  https://w3id.org/GDPRov#UntilTimeDuration
 :UntilTimeDuration rdf:type owl:Class ;
                     rdfs:subClassOf :Duration ;
-                    rdf:comment "The duration that has a fixed end date, e.g. 2022-12-31"@en ;
+                    rdfs:comment "The duration that has a fixed end date, e.g. 2022-12-31"@en ;
                     rdfs:isDefinedBy dpv:UntilTimeDuration ;
                     rdfs:label "Until Time Duration" .
 
