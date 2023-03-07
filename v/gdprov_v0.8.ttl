@@ -603,6 +603,15 @@ prov:invalidated rdf:type owl:ObjectProperty .
                     rdfs:label "is Shared With Third Party" .
 
 
+###  https://w3id.org/GDPRov#isNecessary
+:isNecessary rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf owl:topObjectProperty ;
+                    rdfs:domain :DataStep ;
+                    rdfs:range xsd:boolean ;
+                    rdf:comment "Describe whether the corresponding DataActivity to this DataStep must occur. The lack of execution of an activity that the step is necessary to correspond to a lack of compliance."@en ;
+                    rdfs:label "is Necessary" .
+
+
 #################################################################
 #    Classes
 #################################################################
