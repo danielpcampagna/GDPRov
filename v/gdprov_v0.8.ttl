@@ -612,6 +612,21 @@ prov:invalidated rdf:type owl:ObjectProperty .
                     rdfs:label "is Necessary" .
 
 
+###  https://w3id.org/GDPRov#reviewedAtTime
+:reviewedAtTime rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             rdfs:domain [
+                 a owl:Class ;
+                 owl:unionOf (
+                   :Plan
+                   :Step
+                 )
+             ] ;
+             rdfs:range xsd:dateTime ;
+             rdfs:comment "The time at which a plan or a procedure was reviewed."@en ;
+             rdfs:label "is Necessary" .
+
+
 #################################################################
 #    Classes
 #################################################################
