@@ -1344,6 +1344,12 @@ The deletion is expressed as prov:invalidated over the dataset."@en ;
               rdfs:label "PersonalData"@en ;
               rdfs:seeAlso :PersonalDataEntity .
 
+###  https://w3id.org/GDPRov#DocumentData
+:DocumentData rdf:type owl:Class ;
+              rdfs:subClassOf :Data ;
+              rdfs:comment "Describes an abstract document that contains references to the law (e.g., documentation of the circumstances in which an individual's data protection rights may be lawfully restricted)."@en ;
+              rdfs:label "PersonalData"@en .
+
 
 ###  https://w3id.org/GDPRov#PersonalDataEntity
 :PersonalDataEntity rdf:type owl:Class ;
@@ -1354,13 +1360,11 @@ The deletion is expressed as prov:invalidated over the dataset."@en ;
                     rdfs:seeAlso :PersonalData .
 
 
-###  https://w3id.org/GDPRov#PersonalDataEntity
+###  https://w3id.org/GDPRov#DocumentEntity
 :DocumentEntity rdf:type owl:Class ;
                     rdfs:subClassOf :DataEntity ;
-                    rdfs:comment "A."@en ;
-                    rdfs:isDefinedBy gdprtext:PersonalData ;
-                    rdfs:label "Personal Data Entity" ;
-                    rdfs:seeAlso :PersonalData .
+                    rdfs:comment "A document that contains references to the law (e.g., documentation of the circumstances in which an individual's data protection rights may be lawfully restricted)."@en ;
+                    rdfs:label "DocumentEntity" .
 
 
 ###  https://w3id.org/GDPRov#Process
