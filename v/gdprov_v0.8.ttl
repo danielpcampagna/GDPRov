@@ -618,8 +618,8 @@ prov:invalidated rdf:type owl:ObjectProperty .
              rdfs:domain [
                  a owl:Class ;
                  owl:unionOf (
-                   :Plan
-                   :Step
+                   :Process
+                   :DataStep
                  )
              ] ;
              rdfs:range xsd:dateTime ;
