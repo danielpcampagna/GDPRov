@@ -895,8 +895,7 @@ time:Duration rdf:type owl:Class .
 ###  https://w3id.org/GDPRov#DataAnonymisationStep
 :DataAnonymisationStep rdf:type owl:Class ;
                        rdfs:subClassOf :DataTransformationStep ;
-                       rdfs:comment "DataAnonymisationStep anonymises data by transforming it from one form to another along the anonymisation chain.
-Anonymisation can be represented as a spectrum going from raw user data to pseudo-anonymised data that can be de-anonymised by the same agent/organisation to pseudo-anonymous data that cannot be deanonymised internally, but may be done by external agents who have access to other data, and finally to completely anonymised data."@en ;
+                       rdfs:comment "DataAnonymisationStep anonymises data by transforming it from one form to another along the anonymisation chain. Anonymisation can be represented as a spectrum going from raw user data to pseudo-anonymised data that can be de-anonymised by the same agent/organisation to pseudo-anonymous data that cannot be deanonymised internally, but may be done by external agents who have access to other data, and finally to completely anonymised data."@en ;
                        rdfs:label "Data Anonymisation Step"@en ;
                        rdfs:seeAlso :AnonymisationActivity .
 
