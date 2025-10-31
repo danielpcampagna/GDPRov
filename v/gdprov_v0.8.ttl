@@ -248,6 +248,7 @@ prov:invalidated rdf:type owl:ObjectProperty .
 
 ###  https://w3id.org/GDPRov#invalidatesData
 :invalidatesData rdf:type owl:ObjectProperty ;
+                 rdfs:range :Data ;
                  rdfs:domain [
                      a owl:Class ;
                      owl:unionOf (
@@ -255,12 +256,12 @@ prov:invalidated rdf:type owl:ObjectProperty .
                        :DataDeletionStep
                      )
                  ] ;
-                 rdfs:range :Data ;
                  rdfs:label "invalidates Data" .
 
 
 ###  https://w3id.org/GDPRov#involvesAgent
 :involvesAgent rdf:type owl:ObjectProperty ;
+               rdfs:range prov:Agent ;
                rdfs:domain [
                    a owl:Class ;
                    owl:unionOf (
@@ -269,7 +270,6 @@ prov:invalidated rdf:type owl:ObjectProperty .
                      :Process
                    )
                ] ;
-               rdfs:range prov:Agent ;
                rdfs:label "involves Agent" .
 
 
@@ -331,8 +331,8 @@ prov:invalidated rdf:type owl:ObjectProperty .
                                   rdfs:subPropertyOf p-plan:hasInputVar ;
                                   rdfs:domain :DataStep ;
                                   rdfs:range :ConsentAgreement ;
-                                  owl:inverseOf :isJustificationForDataStep ;
                                   rdfs:comment "justifies use of data by step through specified consent agreement"@en ;
+                                  owl:inverseOf :isJustificationForDataStep ;
                                   rdfs:label "isJustifiedUsingConsentAgreement" .
 
 
@@ -411,9 +411,9 @@ prov:invalidated rdf:type owl:ObjectProperty .
 ###  https://w3id.org/GDPRov#transferredDataToRegion
 :transferredDataToRegion rdf:type owl:ObjectProperty ;
                          rdfs:domain :CrossBorderTransferActivity ;
+                         rdfs:label "transferredDataToRegion"^^rdfs:Literal ;
                          rdfs:range :Region ;
                          rdfs:comment "The Location of any resource."@en ;
-                         rdfs:label "transferredDataToRegion"^^rdfs:Literal ;
                          rdfs:isDefinedBy prov:atLocation .
 
 
@@ -447,8 +447,8 @@ prov:invalidated rdf:type owl:ObjectProperty .
           rdfs:subPropertyOf p-plan:hasInputVar ;
           rdfs:domain :DataStep ;
           rdfs:range :Data ;
-          owl:inverseOf :isUsedByStep ;
           rdfs:comment "links step with data used"@en ;
+          owl:inverseOf :isUsedByStep ;
           rdfs:label "usesData" .
 
 
