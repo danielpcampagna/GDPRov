@@ -215,14 +215,6 @@ prov:invalidated rdf:type owl:ObjectProperty .
                rdfs:label "generatesData" .
 
 
-###  https://w3id.org/GDPRov#hadDataDiscrepancy
-:hadDataDiscrepancy rdf:type owl:ObjectProperty ;
-             rdfs:domain :DataComparisonActivity ;
-             rdfs:range xsd:boolean ;
-             rdfs:comment "Indicates the outcome of the retrospective comparison processing"@en ;
-             rdfs:label "hadDataDiscrepancy" .
-
-
 ###  https://w3id.org/GDPRov#hasAnonymityLevel
 :hasAnonymityLevel rdf:type owl:ObjectProperty ;
                    rdfs:domain :PersonalData ;
